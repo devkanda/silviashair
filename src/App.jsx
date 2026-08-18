@@ -56,6 +56,14 @@ const reviews = [
   { name: "Pedro Mamede Rodrigues", text: "Eu gosto muito de cortar o cabelo com o Fábio porque ele sabe cortar muito bem, e também gosto do atendimento da dona Sílvia e das funcionárias.", unit: "Shopping Rio Poty" },
 ];
 
+const getInitials = (name) => name
+  .split(" ")
+  .filter(Boolean)
+  .slice(0, 2)
+  .map((part) => part[0])
+  .join("")
+  .toUpperCase();
+
 const units = [
   {
     name: "Teresina Shopping", image: "/assets/legacy/salao-silvia-hair-shopping.jpg", imageAlt: "Fachada da unidade Teresina Shopping",
@@ -272,24 +280,40 @@ export function App() {
             </div>
             <div className="reviews__carousel" onMouseEnter={() => setReviewsPaused(true)} onMouseLeave={() => setReviewsPaused(false)} onFocus={() => setReviewsPaused(true)} onBlur={() => setReviewsPaused(false)}>
               <blockquote key={activeReview} aria-live="polite">
-                <div className="stars stars--small" aria-label={`${reviews[activeReview].rating ?? 5} de 5 estrelas`}>
-                  {[0,1,2,3,4].map((n) => {
-                    const isFilled = n < (reviews[activeReview].rating ?? 5);
-                    return <Star key={n} className={isFilled ? undefined : "is-empty"} size={15} weight={isFilled ? "fill" : "regular"} aria-hidden="true" />;
-                  })}
+                <div className="review-card__author">
+                  <span className="review-card__quote" aria-hidden="true">“</span>
+                  <div className="review-person">
+                    <span className="review-person__initials" aria-hidden="true">{getInitials(reviews[activeReview].name)}</span>
+                    <span className="review-person__copy">
+                      <strong>{reviews[activeReview].name}</strong>
+                      <small>{reviews[activeReview].unit} · Google Maps</small>
+                    </span>
+                  </div>
                 </div>
-                <p>“{reviews[activeReview].text}”</p>
-                <footer><span>{reviews[activeReview].name}<small>{reviews[activeReview].unit} · Google Maps</small></span></footer>
+                <div className="review-card__content">
+                  <div className="review-card__meta">
+                    <div className="stars stars--small" aria-label={`${reviews[activeReview].rating ?? 5} de 5 estrelas`}>
+                      {[0,1,2,3,4].map((n) => {
+                        const isFilled = n < (reviews[activeReview].rating ?? 5);
+                        return <Star key={n} className={isFilled ? undefined : "is-empty"} size={17} weight={isFilled ? "fill" : "regular"} aria-hidden="true" />;
+                      })}
+                    </div>
+                    <span className="review-card__counter">{String(activeReview + 1).padStart(2, "0")} / {String(reviews.length).padStart(2, "0")}</span>
+                  </div>
+                  <p>{reviews[activeReview].text}</p>
+                  <footer className="review-card__footer">
+                    <a className="text-link" href="https://www.google.com/maps/search/Silvia%27s+Hair+Teresina" target="_blank" rel="noreferrer">Conferir no Google <ArrowUpRight size={18} /></a>
+                    <div className="reviews__controls" aria-label="Controles das avaliações">
+                      <button type="button" aria-label="Avaliação anterior" onClick={() => changeReview(-1)}><ArrowLeft size={18} /></button>
+                      <div className="reviews__dots">
+                        {reviews.map((review, index) => <button key={`${review.unit}-${index}`} type="button" className={index === activeReview ? "is-active" : ""} aria-label={`Ir para avaliação ${index + 1}`} aria-current={index === activeReview ? "true" : undefined} onClick={() => setActiveReview(index)} />)}
+                      </div>
+                      <button type="button" aria-label="Próxima avaliação" onClick={() => changeReview(1)}><ArrowRight size={18} /></button>
+                    </div>
+                  </footer>
+                </div>
               </blockquote>
-              <div className="reviews__controls" aria-label="Controles das avaliações">
-                <button type="button" aria-label="Avaliação anterior" onClick={() => changeReview(-1)}><ArrowLeft size={18} /></button>
-                <div className="reviews__dots">
-                  {reviews.map((review, index) => <button key={`${review.unit}-${index}`} type="button" className={index === activeReview ? "is-active" : ""} aria-label={`Ir para avaliação ${index + 1}`} aria-current={index === activeReview ? "true" : undefined} onClick={() => setActiveReview(index)} />)}
-                </div>
-                <button type="button" aria-label="Próxima avaliação" onClick={() => changeReview(1)}><ArrowRight size={18} /></button>
-              </div>
             </div>
-            <a className="text-link" href="https://www.google.com/maps/search/Silvia%27s+Hair+Teresina" target="_blank" rel="noreferrer">Conferir no Google <ArrowUpRight size={18} /></a>
           </div>
         </section>
 
