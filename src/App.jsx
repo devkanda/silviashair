@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ArrowLeft, ArrowRight, ArrowUpRight, Crown, Drop, EnvelopeSimple, Eye,
   FacebookLogo, FlowerLotus, InstagramLogo, List, MapPin, PaintBrush, Scissors,
@@ -84,6 +84,7 @@ export function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeReview, setActiveReview] = useState(0);
   const [reviewsPaused, setReviewsPaused] = useState(false);
+  const galleryLoopTimer = useRef(null);
 
   useEffect(() => {
     const id = window.location.hash.slice(1);
@@ -103,6 +104,8 @@ export function App() {
     return () => window.clearInterval(timer);
   }, [reviewsPaused]);
 
+  useEffect(() => () => window.clearTimeout(galleryLoopTimer.current), []);
+
   const changeReview = (direction) => {
     setActiveReview((current) => (current + direction + reviews.length) % reviews.length);
   };
@@ -110,12 +113,17 @@ export function App() {
   const keepGalleryLooping = (event) => {
     if (!window.matchMedia("(max-width: 720px)").matches) return;
     const galleryViewport = event.currentTarget;
-    const galleryItems = galleryViewport.querySelectorAll(".marquee__track img");
-    const firstRepeatedItem = galleryItems[gallery.length];
-    if (!galleryItems[0] || !firstRepeatedItem) return;
+    window.clearTimeout(galleryLoopTimer.current);
+    galleryLoopTimer.current = window.setTimeout(() => {
+      const galleryItems = galleryViewport.querySelectorAll(".marquee__track img");
+      const firstRepeatedItem = galleryItems[gallery.length];
+      if (!galleryItems[0] || !firstRepeatedItem) return;
 
-    const loopWidth = firstRepeatedItem.offsetLeft - galleryItems[0].offsetLeft;
-    if (galleryViewport.scrollLeft >= loopWidth) galleryViewport.scrollLeft -= loopWidth;
+      const loopWidth = firstRepeatedItem.offsetLeft - galleryItems[0].offsetLeft;
+      if (galleryViewport.scrollLeft >= loopWidth) {
+        galleryViewport.scrollTo({ left: galleryViewport.scrollLeft - loopWidth, behavior: "auto" });
+      }
+    }, 140);
   };
 
   return (
@@ -224,7 +232,7 @@ export function App() {
           </p>
           <div className="marquee" aria-label="Galeria de trabalhos em sequência contínua; no celular, deslize para ver mais" onScroll={keepGalleryLooping}>
             <div className="marquee__track">
-              {[...gallery, ...gallery].map((item, index) => <img key={`${item.src}-${index}`} src={item.src} alt={index < gallery.length ? item.alt : ""} aria-hidden={index >= gallery.length} loading="lazy" />)}
+              {[...gallery, ...gallery].map((item, index) => <img key={`${item.src}-${index}`} src={item.src} alt={index < gallery.length ? item.alt : ""} aria-hidden={index >= gallery.length} loading={index < gallery.length ? "lazy" : "eager"} />)}
             </div>
           </div>
           <div className="page-width works__footer">
