@@ -80,6 +80,18 @@ function AppButton({ href, children, light = false, className = "" }) {
   );
 }
 
+function BrandLockup({ variant = "header" }) {
+  return (
+    <a className={`brand-lockup brand-lockup--${variant}`} href="#top" aria-label="Silvia's Hair — Estilo e Personalidade — início">
+      <span className="brand-lockup__mark" aria-hidden="true" />
+      <span className="brand-lockup__copy">
+        <strong>Silvia's Hair</strong>
+        <small>Estilo e Personalidade</small>
+      </span>
+    </a>
+  );
+}
+
 export function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeReview, setActiveReview] = useState(0);
@@ -129,7 +141,7 @@ export function App() {
   return (
     <div className="site-shell">
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Silvia's Hair — início">Silvia's Hair</a>
+        <BrandLockup />
         <nav className="desktop-nav" aria-label="Navegação principal">
           {navItems.map(([label, href]) => <a key={href} href={href}>{label}</a>)}
         </nav>
@@ -148,7 +160,7 @@ export function App() {
           <img className="hero__image" src="/assets/hero-salon.png" alt="Interior elegante do Silvia's Hair" />
           <div className="hero__veil" />
           <div className="hero__content page-width">
-            <p className="eyebrow eyebrow--light">Beauty Atelier · Teresina</p>
+            <p className="eyebrow eyebrow--light">Estilo e Personalidade · Teresina</p>
             <h1 id="hero-title">Beleza que revela<br />a sua melhor versão.</h1>
             <p className="hero__lead">Cuidado, técnica e experiência para transformar cada atendimento em um momento especial.</p>
             <div className="hero__actions">
@@ -313,7 +325,7 @@ export function App() {
 
       <footer className="footer">
         <div className="page-width footer__grid">
-          <div className="footer__brand"><a className="wordmark" href="#top">Silvia's Hair</a><span>Beauty Atelier</span><p>Experiência, técnica e cuidado em cada detalhe.</p></div>
+          <div className="footer__brand"><BrandLockup variant="footer" /><p>Experiência, técnica e cuidado em cada detalhe.</p></div>
           <div className="footer__nav"><strong>Navegação</strong>{navItems.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</div>
           <div className="footer__contact"><strong>Contato</strong><a href="https://instagram.com/silvias_hair/" target="_blank" rel="noreferrer"><InstagramLogo size={20} /> Instagram</a><a href="https://www.facebook.com/silviashairthe" target="_blank" rel="noreferrer"><FacebookLogo size={20} /> Facebook</a><a href={whatsappUrl} target="_blank" rel="noreferrer"><WhatsappLogo size={20} /> WhatsApp</a><a href="mailto:contato@silviashair.com.br"><EnvelopeSimple size={20} /> E-mail</a></div>
         </div>

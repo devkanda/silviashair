@@ -20,7 +20,11 @@ button { color: inherit; }
 .section--black { background: var(--black); color: var(--ivory); }
 
 .site-header { position: fixed; z-index: 50; inset: 0 0 auto; height: 72px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 38px; padding: 0 max(24px, calc((100vw - 1170px) / 2)); background: rgba(18,18,16,.94); color: var(--white); border-bottom: 1px solid rgba(255,255,255,.07); }
-.wordmark { font-family: "Cormorant Garamond", Georgia, serif; font-size: 34px; line-height: 1; letter-spacing: -.03em; }
+.brand-lockup { display: inline-flex; align-items: center; justify-self: start; gap: 12px; min-width: 0; }
+.brand-lockup__mark { width: 25px; height: 34px; flex: 0 0 auto; background: var(--gold-light); -webkit-mask: url("/assets/silvias-mark.png") center / contain no-repeat; mask: url("/assets/silvias-mark.png") center / contain no-repeat; }
+.brand-lockup__copy { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; }
+.brand-lockup__copy strong { font-family: "Cormorant Garamond", Georgia, serif; font-size: 30px; font-weight: 400; line-height: .82; letter-spacing: -.035em; white-space: nowrap; }
+.brand-lockup__copy small { margin-top: 7px; color: var(--gold-light); font-size: 6px; font-weight: 600; line-height: 1; letter-spacing: .2em; text-transform: uppercase; white-space: nowrap; }
 .desktop-nav { display: flex; align-items: center; gap: 34px; font-size: 14px; }
 .desktop-nav a { color: rgba(255,255,255,.82); transition: color .2s; }
 .desktop-nav a:hover { color: var(--gold-light); }
@@ -148,7 +152,10 @@ h1, h2, h3 { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-
 .footer { padding: 72px 0 20px; background: #0d0d0c; color: var(--ivory); }
 .footer__grid { display: grid; grid-template-columns: 1.5fr .7fr .8fr; gap: 80px; padding-bottom: 60px; }
 .footer__brand { display: flex; flex-direction: column; align-items: flex-start; }
-.footer__brand > span { margin-top: 10px; color: var(--gold-light); font-size: 9px; letter-spacing: .24em; text-transform: uppercase; }
+.brand-lockup--footer { gap: 16px; }
+.brand-lockup--footer .brand-lockup__mark { width: 39px; height: 53px; }
+.brand-lockup--footer .brand-lockup__copy strong { font-size: 40px; }
+.brand-lockup--footer .brand-lockup__copy small { margin-top: 10px; font-size: 7px; letter-spacing: .24em; }
 .footer__brand p { max-width: 330px; margin-top: 32px; color: rgba(247,243,236,.5); font-size: 13px; line-height: 1.8; }
 .footer__nav, .footer__contact { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
 .footer__nav strong, .footer__contact strong { margin-bottom: 10px; color: var(--gold-light); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; }
@@ -179,7 +186,10 @@ h1, h2, h3 { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-
   .page-width { width: calc(100% - 36px); }
   .section { padding: 82px 0; }
   .site-header { height: 66px; }
-  .wordmark { font-size: 31px; }
+  .brand-lockup { gap: 9px; }
+  .brand-lockup__mark { width: 21px; height: 29px; }
+  .brand-lockup__copy strong { font-size: 25px; }
+  .brand-lockup__copy small { margin-top: 6px; font-size: 5px; letter-spacing: .16em; }
   .mobile-menu { inset-block-start: 66px; }
   .hero { min-height: 720px; height: 92svh; }
   .hero__image { object-position: 63% center; }
@@ -226,6 +236,10 @@ h1, h2, h3 { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-
   .final-cta__content > div { align-items: center; flex-direction: column; }
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 50px 30px; }
   .footer__brand { grid-column: 1 / -1; }
+  .brand-lockup--footer { gap: 14px; }
+  .brand-lockup--footer .brand-lockup__mark { width: 34px; height: 47px; }
+  .brand-lockup--footer .brand-lockup__copy strong { font-size: 36px; }
+  .brand-lockup--footer .brand-lockup__copy small { margin-top: 9px; font-size: 6px; letter-spacing: .22em; }
   .footer__bottom { align-items: flex-start; flex-direction: column; gap: 12px; }
 }
 
