@@ -19,9 +19,9 @@ const navItems = [
 ];
 
 const services = [
-  { icon: Scissors, title: "Cabelos", text: "Cortes femininos, masculinos e infantis, finalizações e cuidados personalizados." },
+  { icon: Scissors, title: "Cabelos", text: "Cortes femininos, masculinos e infantis, finalizações e cuidados para cada tipo de fio." },
   { icon: PaintBrush, title: "Coloração", text: "Coloração, tonalização, mechas e iluminação pensadas para valorizar cada estilo." },
-  { icon: Crown, title: "Mega Hair", text: "Alongamentos com acabamento natural, volume e comprimento personalizados." },
+  { icon: Crown, title: "Mega Hair", text: "Alongamentos com acabamento natural, volume e comprimento em perfeita harmonia." },
   { icon: Drop, title: "Tratamentos", text: "Hidratação, reconstrução, nutrição e recuperação da saúde dos fios." },
   { icon: FlowerLotus, title: "Limpeza de pele", text: "Higienização profunda, esfoliação e cuidados para renovar a pele com delicadeza." },
   { icon: Sparkle, title: "Penteados", text: "Criações para eventos, festas, noivas e ocasiões especiais." },
@@ -177,7 +177,7 @@ export function App() {
               <p className="eyebrow">Sobre a Silvia</p>
               <h2>Uma trajetória dedicada a transformar autoestima.</h2>
               <div className="gold-rule" />
-              <p>O Silvia's Hair nasceu da paixão de Sílvia Meneses pelo cuidado, pela técnica e pela transformação.</p>
+              <p>O Silvia's Hair nasceu da paixão de Sílvia Meneses pelo cuidado, pela beleza e pela transformação.</p>
               <p>Sua carreira foi construída com constante aperfeiçoamento, formação profissional e dedicação a cada cliente.</p>
               <p>Hoje, esse legado se traduz em um salão onde técnica, atendimento e atenção aos detalhes caminham juntos.</p>
               <a className="text-link" href="#servicos">Explore nossos serviços <ArrowRight size={18} /></a>
