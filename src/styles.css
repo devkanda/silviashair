@@ -76,16 +76,20 @@ h1, h2, h3 { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-
 .results__header { display: grid; grid-template-columns: 1fr .72fr; align-items: end; gap: 90px; margin-bottom: 64px; }
 .results__header h2 { font-size: clamp(58px, 5vw, 78px); line-height: .95; }
 .results__header-copy > p { max-width: 520px; margin: 0 0 28px; color: rgba(247,243,236,.65); font-size: 14px; line-height: 1.8; }
-.results__mosaic { display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: repeat(2, 300px) 280px; gap: 18px; }
-.result-shot { position: relative; margin: 0; overflow: hidden; background: #191917; border-radius: var(--image-radius); }
+.results__mosaic { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.result-shot { position: relative; aspect-ratio: 4 / 3; margin: 0; overflow: hidden; background: #191917; border-radius: var(--image-radius); }
+.result-shot::after { content: ""; position: absolute; inset: 38% 0 0; background: linear-gradient(transparent, rgba(10,10,9,.88)); pointer-events: none; }
 .result-shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
 .result-shot:hover img { transform: scale(1.025); }
-.result-shot figcaption { position: absolute; left: 16px; bottom: 16px; padding: 9px 11px; background: rgba(18,18,16,.86); color: var(--gold-light); font-size: 9px; letter-spacing: .15em; text-transform: uppercase; }
-.result-shot--feature { grid-column: 1 / 8; grid-row: 1 / 3; }
-.result-shot--top { grid-column: 8 / 13; grid-row: 1; }
-.result-shot--middle { grid-column: 8 / 13; grid-row: 2; }
-.result-shot--bottom-left { grid-column: 1 / 7; grid-row: 3; }
-.result-shot--bottom-right { grid-column: 7 / 13; grid-row: 3; }
+.result-shot figcaption { position: absolute; z-index: 2; inset: auto 0 0; display: flex; align-items: end; justify-content: space-between; gap: 24px; padding: 26px; color: var(--ivory); }
+.result-shot__label { display: flex; flex-direction: column; gap: 7px; }
+.result-shot__label > span { display: flex; align-items: center; gap: 9px; color: var(--gold-light); font-size: 8px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+.result-shot__label > span::before { content: ""; width: 22px; height: 1px; background: var(--gold); }
+.result-shot__label strong { font-family: "Cormorant Garamond", Georgia, serif; font-size: 42px; font-weight: 400; letter-spacing: -.025em; line-height: .9; text-shadow: 0 2px 12px rgba(0,0,0,.38); }
+.result-shot__action { display: inline-flex; align-items: center; gap: 9px; min-height: 42px; padding: 0 15px; flex: 0 0 auto; background: rgba(18,18,16,.9); border: 1px solid rgba(216,193,143,.62); color: var(--ivory); font-size: 10px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; transition: .2s; }
+.result-shot__action svg { color: var(--gold-light); }
+.result-shot__action:hover { background: var(--gold-light); border-color: var(--gold-light); color: var(--black); }
+.result-shot__action:hover svg { color: var(--black); }
 
 .works { padding: 16px 0 0; overflow: hidden; }
 .works__heading { display: flex; justify-content: space-between; align-items: end; gap: 80px; padding-top: 90px; margin-bottom: 48px; border-top: 1px solid rgba(255,255,255,.12); }
@@ -104,7 +108,12 @@ h1, h2, h3 { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-
 .google-score strong { font-family: "Cormorant Garamond", Georgia, serif; font-size: 38px; font-weight: 500; line-height: 1; }
 .google-context > span { display: block; margin-top: 10px; color: var(--muted); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; }
 .stars { display: flex; gap: 4px; color: #a47d35; }
+.star-partial { position: relative; width: 20px; height: 20px; display: inline-block; flex: 0 0 20px; }
+.star-partial__base { color: rgba(164,125,53,.28); }
+.star-partial__fill { position: absolute; inset: 0 auto 0 0; width: 70%; overflow: hidden; color: #a47d35; }
+.star-partial__fill svg { display: block; max-width: none; }
 .stars--small { margin-bottom: 26px; }
+.stars--small .is-empty { color: rgba(164,125,53,.34); }
 .reviews__carousel { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 50px; margin-bottom: 34px; border-bottom: 1px solid rgba(29,29,26,.18); }
 .reviews blockquote { margin: 0; padding: 42px 0 38px; animation: reviewIn .45s ease both; }
 .reviews blockquote p { min-height: 180px; max-width: 820px; margin: 0 0 30px; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(34px, 3vw, 48px); line-height: 1.16; }
@@ -159,10 +168,7 @@ h1, h2, h3 { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-
   .about__media figcaption { left: 20px; }
   .section-heading--split { grid-template-columns: 1fr; gap: 28px; }
   .results__header { grid-template-columns: 1fr; gap: 28px; }
-  .results__mosaic { grid-template-columns: repeat(2, 1fr); grid-template-rows: auto; }
-  .result-shot--feature, .result-shot--top, .result-shot--middle, .result-shot--bottom-left, .result-shot--bottom-right { grid-column: auto; grid-row: auto; }
-  .result-shot--feature { grid-column: 1 / -1; aspect-ratio: 16 / 10; }
-  .result-shot:not(.result-shot--feature) { aspect-ratio: 1.42 / 1; }
+  .results__mosaic { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .reviews__top { align-items: flex-start; flex-direction: column; }
   .unit__actions { align-items: flex-start; flex-direction: column; }
 }
@@ -193,7 +199,9 @@ h1, h2, h3 { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-
   .results__header { margin-bottom: 42px; }
   .results__header h2 { font-size: 54px; }
   .results__mosaic { grid-template-columns: 1fr; gap: 12px; }
-  .result-shot--feature { grid-column: auto; aspect-ratio: 4 / 5; }
+  .result-shot { aspect-ratio: 4 / 5; }
+  .result-shot figcaption { align-items: flex-start; flex-direction: column; gap: 16px; padding: 22px; }
+  .result-shot__label strong { font-size: 40px; }
   .works__heading { align-items: flex-start; flex-direction: column; gap: 20px; padding-top: 64px; }
   .marquee { overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory; }
   .marquee::-webkit-scrollbar { display: none; }

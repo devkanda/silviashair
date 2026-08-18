@@ -11,6 +11,7 @@ import "@fontsource/manrope/500.css";
 import "@fontsource/manrope/600.css";
 
 const whatsappUrl = "https://wa.me/558688970006?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20no%20Silvia%27s%20Hair.";
+const whatsappForProcedure = (procedure) => `https://wa.me/558688970006?text=${encodeURIComponent(`Olá! Vi no site o procedimento ${procedure} e gostaria de agendar.`)}`;
 
 const navItems = [
   ["Sobre", "#sobre"], ["Serviços", "#servicos"], ["Resultados", "#resultados"],
@@ -35,10 +36,20 @@ const gallery = [
   { src: "/assets/legacy/f88bedb8df9f2f896e900bbcfbe1687f.jpg", alt: "Produção de noiva realizada pelo Silvia's Hair" },
 ];
 
+const resultServices = [
+  { title: "Megahair", message: "de megahair", src: "/assets/result-feature.png", alt: "Cabelo longo com volume e acabamento natural no Silvia's Hair" },
+  { title: "Penteado", message: "de penteado", src: "/assets/legacy/985508fccd05dd881228e50ab4bfe03b.jpg", alt: "Penteado com acabamento elaborado realizado no Silvia's Hair" },
+  { title: "Maquiagem", message: "de maquiagem", src: "/assets/legacy/e17705d8e9684e8abe23ee0eb7a11441.jpg", alt: "Maquiagem com acabamento iluminado realizada no Silvia's Hair" },
+  { title: "Noiva", message: "para noiva", src: "/assets/legacy/f88bedb8df9f2f896e900bbcfbe1687f.jpg", alt: "Produção de noiva realizada pelo Silvia's Hair" },
+  { title: "Nail Design", message: "de nail design", src: "/assets/legacy/2a3c041c96b91dc46572ae9b9911ba4e.jpg", alt: "Unhas com acabamento nude e francesinha delicada realizadas no Silvia's Hair" },
+  { title: "Corte Masculino", message: "de corte masculino", src: "/assets/legacy/338032bce431eb7efca48df5d8f744e3.jpg", alt: "Atendimento masculino com máquina realizado no Silvia's Hair" },
+];
+
 const reviews = [
   { name: "Pedro Silva", text: "Amei a experiência no salão, profissionais incríveis e atenciosos, super recomendo ❤️", unit: "Teresina Shopping" },
   { name: "Solange Lacerda", text: "Amo fazer minha unha com Sandra, ela é maravilhosa… ela conhece direitinho como é minha unha. Ahh.. sobre o novo espaço da Silvia’s Hair, tá muito confortável, amei!!!!!!", unit: "Teresina Shopping" },
   { name: "Laiana Lopes", text: "Aqui vc encontra tudo que procura em termos de beleza,conforto e segurança.", unit: "Teresina Shopping" },
+  { name: "Liliane Mayumi", text: "Primeira vez que faço unha em Teresina e tive a benção de fazer com a Michele. Ela além de muito querida é bastante profissional. Fiz plástica dos pés e mão... amei", unit: "Teresina Shopping", rating: 4 },
   { name: "Joaquina Alves", text: "Atendimento maravilhoso! As meninas todas foram super acolhedoras e gentis. E trabalho foi excelente da Tay.", unit: "Shopping Rio Poty" },
   { name: "Márcia Costa", text: "Bons profissionais, bons produtos, bom atendimento. Cheguei na tarde de um domingo e fui atendida prontamente. Salvou minha semana. Recomendado.", unit: "Shopping Rio Poty" },
   { name: "Pedro Mamede Rodrigues", text: "Eu gosto muito de cortar o cabelo com o Fábio porque ele sabe cortar muito bem, e também gosto do atendimento da dona Sílvia e das funcionárias.", unit: "Shopping Rio Poty" },
@@ -139,7 +150,7 @@ export function App() {
               <a className="text-link" href="#servicos">Conheça nossa história <ArrowRight size={18} /></a>
             </div>
             <figure className="about__media">
-              <img src="/assets/about-salon.png" alt="Estações de atendimento e espelhos iluminados do salão" />
+              <img src="/assets/silvia-meneses.png" alt="Sílvia Meneses no salão segurando suas tesouras de cabeleireira" />
               <figcaption><span>25+</span> anos cuidando de cada detalhe</figcaption>
             </figure>
           </div>
@@ -169,17 +180,24 @@ export function App() {
               <div><p className="eyebrow eyebrow--light">Resultados</p><h2>Resultados que<br />falam por si.</h2></div>
               <div className="results__header-copy">
                 <p>Cada transformação começa com uma história diferente. Conheça alguns dos trabalhos realizados pela equipe Silvia's Hair.</p>
-                <a className="text-link text-link--light" href="https://www.instagram.com/silvias_hair/" target="_blank" rel="noreferrer"><InstagramLogo size={18} /> Ver mais trabalhos no Instagram <ArrowUpRight size={18} /></a>
+                <a className="text-link text-link--light" href="#mais-trabalhos">Ver mais procedimentos <ArrowRight size={18} /></a>
               </div>
             </div>
             <div className="results__mosaic">
-              <figure className="result-shot result-shot--feature">
-              <img src="/assets/result-feature.png" alt="Resultado de balayage e finalização no Silvia's Hair" /><figcaption>Coloração · Finalização</figcaption>
-              </figure>
-              <figure className="result-shot result-shot--top"><img src="/assets/legacy/9ab617e74fae1ae63c25f84eddba2cdc.jpg" alt="Produção especial de maquiagem e cabelo" /><figcaption>Maquiagem · Penteado</figcaption></figure>
-              <figure className="result-shot result-shot--middle"><img src="/assets/legacy/e17705d8e9684e8abe23ee0eb7a11441.jpg" alt="Maquiagem com acabamento iluminado" /><figcaption>Beleza · Produção</figcaption></figure>
-              <figure className="result-shot result-shot--bottom-left"><img src="/assets/legacy/f88bedb8df9f2f896e900bbcfbe1687f.jpg" alt="Produção de noiva realizada pelo Silvia's Hair" /><figcaption>Noivas · Produção completa</figcaption></figure>
-              <figure className="result-shot result-shot--bottom-right"><img src="/assets/legacy/985508fccd05dd881228e50ab4bfe03b.jpg" alt="Penteado de noiva finalizado no Silvia's Hair" /><figcaption>Penteado · Acabamento</figcaption></figure>
+              {resultServices.map((service) => (
+                <figure className="result-shot" key={service.title}>
+                  <img src={service.src} alt={service.alt} />
+                  <figcaption>
+                    <span className="result-shot__label">
+                      <span>Procedimento</span>
+                      <strong>{service.title}</strong>
+                    </span>
+                    <a className="result-shot__action" href={whatsappForProcedure(service.message)} target="_blank" rel="noreferrer" aria-label={`Agendar ${service.title} pelo WhatsApp`}>
+                      <WhatsappLogo size={18} weight="fill" aria-hidden="true" /> Agendar
+                    </a>
+                  </figcaption>
+                </figure>
+              ))}
             </div>
           </div>
         </section>
@@ -205,14 +223,25 @@ export function App() {
               <div className="google-context">
                 <div className="google-score">
                   <strong>4,7</strong>
-                  <div className="stars" aria-label="4,7 de 5 estrelas no Google Maps">{[0,1,2,3,4].map((n) => <Star key={n} size={20} weight="fill" />)}</div>
+                  <div className="stars" aria-label="4,7 de 5 estrelas no Google Maps">
+                    {[0,1,2,3].map((n) => <Star key={n} size={20} weight="fill" aria-hidden="true" />)}
+                    <span className="star-partial" aria-hidden="true">
+                      <Star className="star-partial__base" size={20} weight="fill" />
+                      <span className="star-partial__fill"><Star size={20} weight="fill" /></span>
+                    </span>
+                  </div>
                 </div>
                 <span>Avaliações no Google</span>
               </div>
             </div>
             <div className="reviews__carousel" onMouseEnter={() => setReviewsPaused(true)} onMouseLeave={() => setReviewsPaused(false)} onFocus={() => setReviewsPaused(true)} onBlur={() => setReviewsPaused(false)}>
               <blockquote key={activeReview} aria-live="polite">
-                <div className="stars stars--small">{[0,1,2,3,4].map((n) => <Star key={n} size={15} weight="fill" />)}</div>
+                <div className="stars stars--small" aria-label={`${reviews[activeReview].rating ?? 5} de 5 estrelas`}>
+                  {[0,1,2,3,4].map((n) => {
+                    const isFilled = n < (reviews[activeReview].rating ?? 5);
+                    return <Star key={n} className={isFilled ? undefined : "is-empty"} size={15} weight={isFilled ? "fill" : "regular"} aria-hidden="true" />;
+                  })}
+                </div>
                 <p>“{reviews[activeReview].text}”</p>
                 <footer><span>{reviews[activeReview].name}<small>{reviews[activeReview].unit} · Google Maps</small></span></footer>
               </blockquote>
