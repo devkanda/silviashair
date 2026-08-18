@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   ArrowLeft, ArrowRight, ArrowUpRight, Crown, Drop, EnvelopeSimple, Eye,
-  FacebookLogo, InstagramLogo, List, MapPin, PaintBrush, Scissors,
+  FacebookLogo, FlowerLotus, InstagramLogo, List, MapPin, PaintBrush, Scissors,
   Sparkle, Star, WhatsappLogo, X,
 } from "@phosphor-icons/react";
 import "@fontsource/cormorant-garamond/400.css";
@@ -23,6 +23,7 @@ const services = [
   { icon: PaintBrush, title: "Coloração", text: "Coloração, tonalização, mechas e iluminação pensadas para valorizar cada estilo." },
   { icon: Crown, title: "Mega Hair", text: "Alongamentos com acabamento natural, volume e comprimento personalizados." },
   { icon: Drop, title: "Tratamentos", text: "Hidratação, reconstrução, nutrição e recuperação da saúde dos fios." },
+  { icon: FlowerLotus, title: "Limpeza de pele", text: "Higienização profunda, esfoliação e cuidados para renovar a pele com delicadeza." },
   { icon: Sparkle, title: "Penteados", text: "Produções para eventos, festas, noivas e ocasiões especiais." },
   { icon: Eye, title: "Maquiagem", text: "Produções personalizadas para realçar sua beleza em diferentes momentos." },
 ];
@@ -105,6 +106,18 @@ export function App() {
   const changeReview = (direction) => {
     setActiveReview((current) => (current + direction + reviews.length) % reviews.length);
   };
+
+  const keepGalleryLooping = (event) => {
+    if (!window.matchMedia("(max-width: 720px)").matches) return;
+    const galleryViewport = event.currentTarget;
+    const galleryItems = galleryViewport.querySelectorAll(".marquee__track img");
+    const firstRepeatedItem = galleryItems[gallery.length];
+    if (!galleryItems[0] || !firstRepeatedItem) return;
+
+    const loopWidth = firstRepeatedItem.offsetLeft - galleryItems[0].offsetLeft;
+    if (galleryViewport.scrollLeft >= loopWidth) galleryViewport.scrollLeft -= loopWidth;
+  };
+
   return (
     <div className="site-shell">
       <header className="site-header">
@@ -170,7 +183,7 @@ export function App() {
                 </article>
               ))}
             </div>
-            <a className="text-link services__link" href="#resultados">Conhecer todos os serviços <ArrowRight size={18} /></a>
+            <a className="text-link services__link" href="#resultados">Conheça nossos resultados <ArrowRight size={18} /></a>
           </div>
         </section>
 
@@ -209,7 +222,7 @@ export function App() {
           <p className="page-width swipe-hint" aria-hidden="true">
             <span>Deslize para o lado</span><ArrowRight size={18} />
           </p>
-          <div className="marquee" aria-label="Galeria de trabalhos; no celular, deslize para ver mais">
+          <div className="marquee" aria-label="Galeria de trabalhos em sequência contínua; no celular, deslize para ver mais" onScroll={keepGalleryLooping}>
             <div className="marquee__track">
               {[...gallery, ...gallery].map((item, index) => <img key={`${item.src}-${index}`} src={item.src} alt={index < gallery.length ? item.alt : ""} aria-hidden={index >= gallery.length} loading="lazy" />)}
             </div>
