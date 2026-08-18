@@ -24,8 +24,8 @@ const services = [
   { icon: Crown, title: "Mega Hair", text: "Alongamentos com acabamento natural, volume e comprimento personalizados." },
   { icon: Drop, title: "Tratamentos", text: "Hidratação, reconstrução, nutrição e recuperação da saúde dos fios." },
   { icon: FlowerLotus, title: "Limpeza de pele", text: "Higienização profunda, esfoliação e cuidados para renovar a pele com delicadeza." },
-  { icon: Sparkle, title: "Penteados", text: "Produções para eventos, festas, noivas e ocasiões especiais." },
-  { icon: Eye, title: "Maquiagem", text: "Produções personalizadas para realçar sua beleza em diferentes momentos." },
+  { icon: Sparkle, title: "Penteados", text: "Criações para eventos, festas, noivas e ocasiões especiais." },
+  { icon: Eye, title: "Maquiagem", text: "Maquiagens personalizadas para realçar sua beleza com elegância." },
 ];
 
 const gallery = [
@@ -160,12 +160,12 @@ export function App() {
           <img className="hero__image" src="/assets/hero-salon.png" alt="Interior elegante do Silvia's Hair" />
           <div className="hero__veil" />
           <div className="hero__content page-width">
-            <p className="eyebrow eyebrow--light">Estilo e Personalidade · Teresina</p>
+            <p className="eyebrow eyebrow--light">Referência em Teresina</p>
             <h1 id="hero-title">Beleza que revela<br />a sua melhor versão.</h1>
-            <p className="hero__lead">Cuidado, técnica e experiência para transformar cada atendimento em um momento especial.</p>
+            <p className="hero__lead">Atendimento acolhedor e resultados pensados para você.</p>
             <div className="hero__actions">
               <AppButton href={whatsappUrl} light>Agendar horário</AppButton>
-              <a className="text-link text-link--light" href="#sobre">Conheça o Silvia's Hair <ArrowRight size={18} /></a>
+              <a className="text-link text-link--light" href="#sobre">Conheça nossa história <ArrowRight size={18} /></a>
             </div>
           </div>
           <a className="hero__scroll" href="#sobre" aria-label="Ir para a seção sobre"><span>Descubra</span><ArrowRight size={18} /></a>
@@ -175,16 +175,16 @@ export function App() {
           <div className="page-width about__grid">
             <div className="about__copy">
               <p className="eyebrow">Sobre a Silvia</p>
-              <h2>Uma história construída através da beleza.</h2>
+              <h2>Uma trajetória dedicada a transformar autoestima.</h2>
               <div className="gold-rule" />
               <p>O Silvia's Hair nasceu da paixão de Sílvia Meneses pelo cuidado, pela técnica e pela transformação.</p>
-              <p>Ao longo de mais de 25 anos de experiência, Sílvia construiu uma trajetória marcada por constante aperfeiçoamento, formação profissional e dedicação a cada cliente.</p>
-              <p>Hoje, essa experiência se traduz em um salão onde técnica, atendimento e atenção aos detalhes caminham juntos.</p>
-              <a className="text-link" href="#servicos">Conheça nossa história <ArrowRight size={18} /></a>
+              <p>Sua carreira foi construída com constante aperfeiçoamento, formação profissional e dedicação a cada cliente.</p>
+              <p>Hoje, esse legado se traduz em um salão onde técnica, atendimento e atenção aos detalhes caminham juntos.</p>
+              <a className="text-link" href="#servicos">Explore nossos serviços <ArrowRight size={18} /></a>
             </div>
             <figure className="about__media">
               <img src="/assets/silvia-meneses.png" alt="Sílvia Meneses no salão segurando suas tesouras de cabeleireira" />
-              <figcaption><span>25+</span> anos cuidando de cada detalhe</figcaption>
+              <figcaption><span>25+</span> anos de experiência</figcaption>
             </figure>
           </div>
         </section>
@@ -193,7 +193,7 @@ export function App() {
           <div className="page-width">
             <div className="section-heading section-heading--split">
               <div><p className="eyebrow">Serviços</p><h2>Cuidado pensado<br />para cada momento.</h2></div>
-              <p>Conheça alguns dos principais serviços oferecidos pelo Silvia's Hair, conduzidos por uma equipe preparada para ouvir, cuidar e transformar.</p>
+              <p>Do essencial às grandes produções, uma equipe preparada para ouvir, cuidar e transformar.</p>
             </div>
             <div className="services__list">
               {services.map(({ icon: Icon, title, text }, index) => (
@@ -210,10 +210,10 @@ export function App() {
         <section className="results section section--black" id="resultados">
           <div className="page-width">
             <div className="results__header">
-              <div><p className="eyebrow eyebrow--light">Resultados</p><h2>Resultados que<br />falam por si.</h2></div>
+              <div><p className="eyebrow eyebrow--light">Portfólio</p><h2>Resultados que<br />falam por si.</h2></div>
               <div className="results__header-copy">
-                <p>Cada transformação começa com uma história diferente. Conheça alguns dos trabalhos realizados pela equipe Silvia's Hair.</p>
-                <a className="text-link text-link--light" href="#mais-trabalhos">Ver mais procedimentos <ArrowRight size={18} /></a>
+                <p>Cada transformação começa com uma história diferente. Veja uma seleção assinada pela equipe Silvia's Hair.</p>
+                <a className="text-link text-link--light" href="#mais-trabalhos">Explorar mais procedimentos <ArrowRight size={18} /></a>
               </div>
             </div>
             <div className="results__mosaic">
@@ -237,7 +237,7 @@ export function App() {
 
         <section className="works section--black" id="mais-trabalhos">
           <div className="page-width works__heading">
-            <div><p className="eyebrow eyebrow--light">Mais trabalhos</p><h2>Beleza em movimento.</h2></div><p>Uma seleção de trabalhos realizados pela equipe Silvia's Hair.</p>
+            <div><p className="eyebrow eyebrow--light">Inspiração</p><h2>Beleza em movimento.</h2></div><p>Produções recentes que revelam técnica, criatividade e versatilidade.</p>
           </div>
           <p className="page-width swipe-hint" aria-hidden="true">
             <span>Deslize para o lado</span><ArrowRight size={18} />
@@ -248,14 +248,14 @@ export function App() {
             </div>
           </div>
           <div className="page-width works__footer">
-            <a className="text-link text-link--light" href="https://instagram.com/silvias_hair/" target="_blank" rel="noreferrer"><InstagramLogo size={18} /> Ver mais no Instagram <ArrowUpRight size={18} /></a>
+            <a className="text-link text-link--light" href="https://instagram.com/silvias_hair/" target="_blank" rel="noreferrer"><InstagramLogo size={18} /> Acompanhe no Instagram <ArrowUpRight size={18} /></a>
           </div>
         </section>
 
         <section className="reviews section section--beige" id="avaliacoes">
           <div className="page-width">
             <div className="reviews__top">
-              <div><p className="eyebrow">Avaliações do Google</p><h2>O que dizem sobre<br />o Silvia's Hair.</h2></div>
+              <div><p className="eyebrow">Experiências reais</p><h2>O que dizem sobre<br />o Silvia's Hair.</h2></div>
               <div className="google-context">
                 <div className="google-score">
                   <strong>4,7</strong>
@@ -289,14 +289,14 @@ export function App() {
                 <button type="button" aria-label="Próxima avaliação" onClick={() => changeReview(1)}><ArrowRight size={18} /></button>
               </div>
             </div>
-            <a className="text-link" href="https://www.google.com/maps/search/Silvia%27s+Hair+Teresina" target="_blank" rel="noreferrer">Ver avaliações no Google <ArrowUpRight size={18} /></a>
+            <a className="text-link" href="https://www.google.com/maps/search/Silvia%27s+Hair+Teresina" target="_blank" rel="noreferrer">Conferir no Google <ArrowUpRight size={18} /></a>
           </div>
         </section>
 
         <section className="units section section--black" id="unidades">
           <div className="page-width">
             <div className="section-heading section-heading--split section-heading--dark">
-              <div><p className="eyebrow eyebrow--light">Unidades</p><h2>O Silvia's Hair<br />perto de você.</h2></div><p>Escolha a unidade mais conveniente para viver a experiência Silvia's Hair.</p>
+              <div><p className="eyebrow eyebrow--light">Unidades</p><h2>O Silvia's Hair<br />perto de você.</h2></div><p>Encontre o endereço mais próximo e confira horários e localização.</p>
             </div>
             <div className="units__grid">
               {units.map((unit) => (
@@ -316,8 +316,8 @@ export function App() {
         <section className="final-cta">
           <img src="/assets/about-salon.png" alt="" aria-hidden="true" /><div className="final-cta__overlay" />
           <div className="page-width final-cta__content">
-            <p className="eyebrow eyebrow--light">Seu momento</p><h2>Seu próximo momento de cuidado começa aqui.</h2>
-            <p>Escolha sua unidade, reserve seu horário e deixe o restante com a gente.</p>
+            <p className="eyebrow eyebrow--light">Agende sua visita</p><h2>Seu próximo cuidado começa aqui.</h2>
+            <p>Fale com nossa equipe e escolha o melhor horário em uma de nossas unidades.</p>
             <div><AppButton href={whatsappUrl} light>Agendar pelo WhatsApp</AppButton><a className="text-link text-link--light" href="#unidades">Encontrar uma unidade <ArrowRight size={18} /></a></div>
           </div>
         </section>
@@ -325,7 +325,7 @@ export function App() {
 
       <footer className="footer">
         <div className="page-width footer__grid">
-          <div className="footer__brand"><BrandLockup variant="footer" /><p>Experiência, técnica e cuidado em cada detalhe.</p></div>
+          <div className="footer__brand"><BrandLockup variant="footer" /><p>Beleza, confiança e acolhimento em Teresina.</p></div>
           <div className="footer__nav"><strong>Navegação</strong>{navItems.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</div>
           <div className="footer__contact"><strong>Contato</strong><a href="https://instagram.com/silvias_hair/" target="_blank" rel="noreferrer"><InstagramLogo size={20} /> Instagram</a><a href="https://www.facebook.com/silviashairthe" target="_blank" rel="noreferrer"><FacebookLogo size={20} /> Facebook</a><a href={whatsappUrl} target="_blank" rel="noreferrer"><WhatsappLogo size={20} /> WhatsApp</a><a href="mailto:contato@silviashair.com.br"><EnvelopeSimple size={20} /> E-mail</a></div>
         </div>
