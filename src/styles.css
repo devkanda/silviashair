@@ -94,6 +94,7 @@ h1, h2, h3 { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-
 .works { padding: 16px 0 0; overflow: hidden; }
 .works__heading { display: flex; justify-content: space-between; align-items: end; gap: 80px; padding-top: 90px; margin-bottom: 48px; border-top: 1px solid rgba(255,255,255,.12); }
 .works__heading > p { max-width: 370px; margin: 0 0 4px; color: rgba(247,243,236,.6); font-size: 14px; line-height: 1.7; }
+.swipe-hint { display: none; }
 .marquee { overflow: hidden; }
 .marquee__track { display: flex; width: max-content; gap: 16px; animation: galleryMove 50s linear infinite; }
 .marquee:hover .marquee__track { animation-play-state: paused; }
@@ -202,7 +203,9 @@ h1, h2, h3 { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-
   .result-shot { aspect-ratio: 4 / 5; }
   .result-shot figcaption { align-items: flex-start; flex-direction: column; gap: 16px; padding: 22px; }
   .result-shot__label strong { font-size: 40px; }
-  .works__heading { align-items: flex-start; flex-direction: column; gap: 20px; padding-top: 64px; }
+  .works__heading { align-items: flex-start; flex-direction: column; gap: 20px; padding-top: 64px; margin-bottom: 26px; }
+  .swipe-hint { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin: 0 auto 18px; color: var(--gold-light); font-size: 9px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; }
+  .swipe-hint svg { animation: swipeHint 1.6s ease-in-out infinite; }
   .marquee { overflow-x: auto; scrollbar-width: none; scroll-snap-type: x mandatory; }
   .marquee::-webkit-scrollbar { display: none; }
   .marquee__track { animation: none; gap: 10px; padding-inline: 18px; }
@@ -226,8 +229,11 @@ h1, h2, h3 { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-
   .footer__bottom { align-items: flex-start; flex-direction: column; gap: 12px; }
 }
 
+@keyframes swipeHint { 0%, 100% { transform: translateX(0); opacity: .58; } 50% { transform: translateX(7px); opacity: 1; } }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .marquee__track { animation: none; }
   .reviews blockquote { animation: none; }
+  .swipe-hint svg { animation: none; }
 }

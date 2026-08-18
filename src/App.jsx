@@ -206,6 +206,9 @@ export function App() {
           <div className="page-width works__heading">
             <div><p className="eyebrow eyebrow--light">Mais trabalhos</p><h2>Beleza em movimento.</h2></div><p>Uma seleção de trabalhos realizados pela equipe Silvia's Hair.</p>
           </div>
+          <p className="page-width swipe-hint" aria-hidden="true">
+            <span>Deslize para o lado</span><ArrowRight size={18} />
+          </p>
           <div className="marquee" aria-label="Galeria de trabalhos; no celular, deslize para ver mais">
             <div className="marquee__track">
               {[...gallery, ...gallery].map((item, index) => <img key={`${item.src}-${index}`} src={item.src} alt={index < gallery.length ? item.alt : ""} aria-hidden={index >= gallery.length} loading="lazy" />)}

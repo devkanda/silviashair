@@ -29,4 +29,5 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Present the five main result photographs as a spacious editorial mosaic with large landscape crops and subtle service captions; avoid squeezed strips, tiny cards, or uniform grids that diminish the work.
 - Keep location details and Google Maps actions inside the units section instead of repeating them in a separate location block. Avoid stacking repeated storefront logos; use an interior image for one of the units when necessary.
 - Keep the band below the continuous gallery minimal: remove the service-category list and center a single “Ver mais no Instagram” CTA.
+- On mobile, keep a restrained “Deslize para o lado” cue with a small animated arrow immediately above the horizontally scrollable work gallery; hide it on larger screens and respect reduced-motion preferences.
 - The footer is black with beige/white text and small gold accents.
