@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowLeft, ArrowRight, ArrowUpRight, Crown, Drop, EnvelopeSimple, Eye,
-  FacebookLogo, FlowerLotus, InstagramLogo, List, MapPin, PaintBrush, Scissors,
+  FacebookLogo, Feather, FlowerLotus, InstagramLogo, List, MapPin, PaintBrush, Scissors,
   Sparkle, Star, WhatsappLogo, X,
 } from "@phosphor-icons/react";
 import "@fontsource/cormorant-garamond/400.css";
@@ -12,10 +12,12 @@ import "@fontsource/manrope/600.css";
 
 const whatsappUrl = "https://wa.me/558688970006?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20um%20hor%C3%A1rio%20no%20Silvia%27s%20Hair.";
 const whatsappForProcedure = (procedure) => `https://wa.me/558688970006?text=${encodeURIComponent(`Olá! Vi no site o procedimento ${procedure} e gostaria de agendar.`)}`;
+const whatsappForOffer = (offer) => `https://wa.me/558688970006?text=${encodeURIComponent(`Olá! Vi no site a condição especial ${offer} e gostaria de confirmar a disponibilidade e agendar.`)}`;
+const whatsappForDepilation = `https://wa.me/558688970006?text=${encodeURIComponent("Olá! Vi no site o serviço de depilação e gostaria de consultar áreas, valores e agendar.")}`;
 
 const navItems = [
-  ["Sobre", "#sobre"], ["Serviços", "#servicos"], ["Resultados", "#resultados"],
-  ["Unidades", "#unidades"],
+  ["Sobre", "/#sobre"], ["Serviços", "/#servicos"], ["Combos", "/#combos"], ["Resultados", "/#resultados"],
+  ["Conteúdos", "/conteudos"], ["Unidades", "/#unidades"],
 ];
 
 const services = [
@@ -26,24 +28,53 @@ const services = [
   { icon: FlowerLotus, title: "Limpeza de pele", text: "Higienização profunda, esfoliação e cuidados para renovar a pele com delicadeza." },
   { icon: Sparkle, title: "Penteados", text: "Criações para eventos, festas, noivas e ocasiões especiais." },
   { icon: Eye, title: "Maquiagem", text: "Maquiagens personalizadas para realçar sua beleza com elegância." },
+  { icon: Feather, title: "Depilação", text: "Cuidados para diferentes áreas do corpo, com atendimento delicado e atenção ao conforto." },
+];
+
+const featuredCombo = {
+  title: "Escova + lavagem + manicure e pedicure",
+  price: "R$ 159,90",
+  note: "Exceto cabelo extra longo ou com mega hair.",
+};
+
+const comboOffers = [
+  { title: "Manicure + pedicure", oldPrice: "R$ 80,00", price: "R$ 70,00" },
+  { title: "Escova + higienização Wella", price: "R$ 100,00", note: "Exceto cabelo extra longo ou com mega hair." },
+  { title: "Sobrancelhas", oldPrice: "R$ 40,00", price: "R$ 30,00" },
+  { title: "Alongamento de cílios", detail: "Fio a fio ou brasileiro", oldPrice: "R$ 180,00", price: "R$ 150,00" },
+  { title: "Selagem feminina", prefix: "A partir de", price: "R$ 200,00" },
+  { title: "Hidratação Wella ou L’Oréal + escova", price: "R$ 180,00", note: "Exceto cabelo extra longo ou com mega hair." },
+  { title: "Corte feminino", oldPrice: "R$ 120,00", price: "R$ 100,00" },
+  { title: "Mega hair", prefix: "A partir de", price: "R$ 1.000,00" },
+];
+
+const depilationOffers = [
+  { title: "Buço", price: "R$ 25,00" },
+  { title: "Axilas", price: "R$ 40,00" },
+  { title: "Meia perna", price: "R$ 40,00" },
+  { title: "Perna completa", price: "R$ 90,00" },
+  { title: "Costas na cera", prefix: "A partir de", price: "R$ 70,00" },
+  { title: "Barriga", prefix: "A partir de", price: "R$ 40,00" },
 ];
 
 const gallery = [
-  { src: "/assets/result-feature.png", alt: "Cabelo com balayage caramelo finalizado no Silvia's Hair" },
-  { src: "/assets/legacy/daa3807544e63f4ddf72c489711d0693.jpeg", alt: "Resultado de iluminação em cabelo loiro" },
-  { src: "/assets/legacy/6757dc1fedf72f02d6776aec842736c3.jpg", alt: "Profissional Silvia's Hair realizando finalização" },
-  { src: "/assets/legacy/9ab617e74fae1ae63c25f84eddba2cdc.jpg", alt: "Maquiagem e penteado para ocasião especial" },
-  { src: "/assets/legacy/e17705d8e9684e8abe23ee0eb7a11441.jpg", alt: "Produção de maquiagem no Silvia's Hair" },
-  { src: "/assets/legacy/f88bedb8df9f2f896e900bbcfbe1687f.jpg", alt: "Produção de noiva realizada pelo Silvia's Hair" },
+  { src: "/assets/real/img_3833.webp", alt: "Finalização de cabelo com escova no Silvia's Hair" },
+  { src: "/assets/real/img_3807.webp", alt: "Produção de noiva com penteado e maquiagem" },
+  { src: "/assets/real/img_3805.webp", alt: "Manicure com francesinha delicada" },
+  { src: "/assets/real/img_3830.webp", alt: "Corte infantil realizado na barbearia Silvia's Hair" },
+  { src: "/assets/real/procedure-maquiagem-alt.webp", alt: "Maquiagem com acabamento sofisticado" },
+  { src: "/assets/real/img_3834.webp", alt: "Cuidado capilar com toalha personalizada do Silvia's Hair" },
+  { src: "/assets/real/procedure-penteado-alt.webp", alt: "Penteado com acabamento elaborado realizado no Silvia's Hair" },
+  { src: "/assets/real/procedure-limpeza-pele.webp", alt: "Procedimento de limpeza de pele realizado no Silvia's Hair" },
 ];
 
 const resultServices = [
-  { title: "Megahair", message: "de megahair", src: "/assets/result-feature.png", alt: "Cabelo longo com volume e acabamento natural no Silvia's Hair" },
-  { title: "Penteado", message: "de penteado", src: "/assets/legacy/985508fccd05dd881228e50ab4bfe03b.jpg", alt: "Penteado com acabamento elaborado realizado no Silvia's Hair" },
-  { title: "Maquiagem", message: "de maquiagem", src: "/assets/legacy/e17705d8e9684e8abe23ee0eb7a11441.jpg", alt: "Maquiagem com acabamento iluminado realizada no Silvia's Hair" },
-  { title: "Noiva", message: "para noiva", src: "/assets/legacy/f88bedb8df9f2f896e900bbcfbe1687f.jpg", alt: "Produção de noiva realizada pelo Silvia's Hair" },
-  { title: "Nail Design", message: "de nail design", src: "/assets/legacy/2a3c041c96b91dc46572ae9b9911ba4e.jpg", alt: "Unhas com acabamento nude e francesinha delicada realizadas no Silvia's Hair" },
-  { title: "Corte Masculino", message: "de corte masculino", src: "/assets/legacy/338032bce431eb7efca48df5d8f744e3.jpg", alt: "Atendimento masculino com máquina realizado no Silvia's Hair" },
+  { title: "Megahair", message: "de megahair", src: "/assets/real/img_3833.webp", alt: "Cabelo longo com movimento e acabamento natural no Silvia's Hair" },
+  { title: "Penteado", message: "de penteado", src: "/assets/real/portfolio-penteado.webp", alt: "Penteado com acabamento elaborado realizado no Silvia's Hair" },
+  { title: "Maquiagem", message: "de maquiagem", src: "/assets/real/img_3804.webp", alt: "Maquiagem com acabamento iluminado realizada no Silvia's Hair" },
+  { title: "Noiva", message: "para noiva", src: "/assets/real/portfolio-noiva.webp", alt: "Produção de noiva realizada pelo Silvia's Hair" },
+  { title: "Nail Design", message: "de nail design", src: "/assets/real/img_3831.webp", alt: "Unhas com nail art em tons nude e terrosos" },
+  { title: "Barbearia", message: "da barbearia", src: "/assets/real/img_3838.webp", alt: "Atendimento realizado na barbearia Silvia's Hair" },
 ];
 
 const reviews = [
@@ -56,6 +87,49 @@ const reviews = [
   { name: "Pedro Mamede Rodrigues", text: "Eu gosto muito de cortar o cabelo com o Fábio porque ele sabe cortar muito bem, e também gosto do atendimento da dona Sílvia e das funcionárias.", unit: "Shopping Rio Poty" },
 ];
 
+const journalArticles = [
+  {
+    category: "Noivas", title: "Dia de Noiva: como se preparar para o grande momento",
+    readTime: "4 min de leitura",
+    excerpt: "Planejamento, testes e cuidados que ajudam a viver o grande dia com mais tranquilidade.",
+    image: "/assets/real/img_3809.webp", alt: "Produção de noiva realizada pelo Silvia's Hair", message: "para noiva",
+    body: [
+      "A preparação da noiva começa bem antes da cerimônia. Uma conversa inicial ajuda a alinhar estilo, personalidade, vestido, acessórios e o resultado desejado para cabelo e maquiagem.",
+      "Testes prévios e um cronograma de cuidados deixam o dia mais leve. Limpeza de pele, mudanças de cor e escolha dos acessórios devem ser planejadas com antecedência para que cada detalhe converse com o conjunto.",
+    ],
+  },
+  {
+    category: "Cabelos", title: "Tesouraterapia: cuidado sem perder o comprimento",
+    readTime: "3 min de leitura",
+    excerpt: "Uma técnica minuciosa para remover pontas danificadas e preservar o formato dos fios.",
+    image: "/assets/real/img_3803.webp", alt: "Sílvia Meneses realizando um corte no Silvia's Hair", message: "de tratamento capilar",
+    body: [
+      "A tesouraterapia é uma alternativa para quem deseja cuidar das pontas quebradas sem alterar de forma significativa o comprimento ou o desenho do corte.",
+      "O procedimento é feito de maneira detalhada, fio a fio, e pode ajudar a devolver uma aparência mais alinhada e luminosa ao cabelo. A indicação ideal depende de uma avaliação profissional.",
+    ],
+  },
+  {
+    category: "Mega Hair", title: "Como preservar um Mega Hair bonito e natural",
+    readTime: "4 min de leitura",
+    excerpt: "Hábitos de manutenção que ajudam a proteger o alongamento e os fios naturais.",
+    image: "/assets/real/img_3833.webp", alt: "Cabelo longo com acabamento natural no Silvia's Hair", message: "de megahair",
+    body: [
+      "Um resultado natural depende tanto da aplicação quanto da rotina de cuidados. Escovação delicada, produtos adequados e atenção à região das emendas fazem parte da manutenção.",
+      "O intervalo de retorno varia conforme a técnica e o crescimento do cabelo. A equipe pode orientar a frequência ideal e os tratamentos mais indicados para cada caso.",
+    ],
+  },
+  {
+    category: "Unhas", title: "Unhas alongadas: cuidados essenciais no dia a dia",
+    readTime: "3 min de leitura",
+    excerpt: "Pequenas atitudes para manter o acabamento bonito até a próxima manutenção.",
+    image: "/assets/real/img_3831.webp", alt: "Unhas alongadas com acabamento delicado", message: "de nail design",
+    body: [
+      "Evitar impactos, usar luvas ao manusear produtos de limpeza e não remover o material em casa ajuda a preservar as unhas e o acabamento.",
+      "A manutenção deve ser feita no período orientado pela profissional. Assim, é possível acompanhar o crescimento, corrigir eventuais descolamentos e manter as unhas cuidadas com segurança.",
+    ],
+  },
+];
+
 const getInitials = (name) => name
   .split(" ")
   .filter(Boolean)
@@ -66,13 +140,13 @@ const getInitials = (name) => name
 
 const units = [
   {
-    name: "Teresina Shopping", image: "/assets/legacy/salao-silvia-hair-shopping.jpg", imageAlt: "Fachada da unidade Teresina Shopping",
+    name: "Teresina Shopping", image: "/assets/real/img_3819.webp", imageAlt: "Espaço interno da unidade Teresina Shopping",
     address: "Av. Raul Lopes, 1000 · Lojas 267/268/269 · Teresina — PI",
     hours: "Segunda a sábado, 10h às 22h · Domingos, 14h às 20h",
     maps: "https://www.google.com/maps/search/?api=1&query=Silvia%27s+Hair+Teresina+Shopping",
   },
   {
-    name: "Shopping Rio Poty", image: "/assets/about-salon.png", imageAlt: "Interior elegante de uma unidade Silvia's Hair",
+    name: "Shopping Rio Poty", image: "/assets/real/img_3813.webp", imageAlt: "Espaço de beleza da unidade Shopping Rio Poty",
     address: "Av. Marechal Castelo Branco, 911 · Piso L3 · Teresina — PI",
     hours: "Segunda a sábado, 10h às 22h · Domingos, 15h às 21h",
     maps: "https://www.google.com/maps/search/?api=1&query=Silvia%27s+Hair+Shopping+Rio+Poty",
@@ -90,7 +164,7 @@ function AppButton({ href, children, light = false, className = "" }) {
 
 function BrandLockup({ variant = "header" }) {
   return (
-    <a className={`brand-lockup brand-lockup--${variant}`} href="#top" aria-label="Silvia's Hair — Estilo e Personalidade — início">
+    <a className={`brand-lockup brand-lockup--${variant}`} href="/" aria-label="Silvia's Hair — Estilo e Personalidade — início">
       <span className="brand-lockup__mark" aria-hidden="true" />
       <span className="brand-lockup__copy">
         <strong>Silvia's Hair</strong>
@@ -100,11 +174,38 @@ function BrandLockup({ variant = "header" }) {
   );
 }
 
+function shouldShowBrandIntro() {
+  if (typeof window === "undefined" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
+  const isPreview = new URLSearchParams(window.location.search).get("intro") === "1";
+  return isPreview || window.sessionStorage.getItem("silvias-brand-intro-seen") !== "1";
+}
+
 export function App() {
+  const journalPath = window.location.pathname.replace(/\/+$/, "");
+  const isJournalPage = journalPath === "/conteudos" || journalPath === "/dicas";
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeReview, setActiveReview] = useState(0);
   const [reviewsPaused, setReviewsPaused] = useState(false);
+  const [introVisible, setIntroVisible] = useState(() => !isJournalPage && shouldShowBrandIntro());
+  const [activeArticle, setActiveArticle] = useState(null);
   const galleryLoopTimer = useRef(null);
+  const articleCloseRef = useRef(null);
+
+  useEffect(() => {
+    document.title = isJournalPage ? "Conteúdos | Silvia's Hair" : "Silvia's Hair | Estilo e Personalidade";
+  }, [isJournalPage]);
+
+  useEffect(() => {
+    if (!introVisible) return undefined;
+
+    const isPreview = new URLSearchParams(window.location.search).get("intro") === "1";
+    if (!isPreview) window.sessionStorage.setItem("silvias-brand-intro-seen", "1");
+
+    const timer = window.setTimeout(() => setIntroVisible(false), 1850);
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [introVisible]);
 
   useEffect(() => {
     const id = window.location.hash.slice(1);
@@ -125,6 +226,19 @@ export function App() {
   }, [reviewsPaused]);
 
   useEffect(() => () => window.clearTimeout(galleryLoopTimer.current), []);
+
+  useEffect(() => {
+    if (!activeArticle) return undefined;
+    const previousOverflow = document.body.style.overflow;
+    const closeOnEscape = (event) => { if (event.key === "Escape") setActiveArticle(null); };
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", closeOnEscape);
+    articleCloseRef.current?.focus();
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [activeArticle]);
 
   const changeReview = (direction) => {
     setActiveReview((current) => (current + direction + reviews.length) % reviews.length);
@@ -147,7 +261,19 @@ export function App() {
   };
 
   return (
-    <div className="site-shell">
+    <div className={`site-shell ${introVisible ? "site-shell--intro" : ""}`}>
+      {introVisible && (
+        <div className="brand-intro" aria-hidden="true">
+          <div className="brand-intro__lockup">
+            <span className="brand-intro__mark" />
+            <span className="brand-intro__copy">
+              <strong>Silvia's Hair</strong>
+              <small>Estilo e Personalidade</small>
+            </span>
+          </div>
+          <span className="brand-intro__rule" />
+        </div>
+      )}
       <header className="site-header">
         <BrandLockup />
         <nav className="desktop-nav" aria-label="Navegação principal">
@@ -164,8 +290,80 @@ export function App() {
       </div>
 
       <main>
+        {isJournalPage ? (
+          <>
+            <section className="journal-page-hero" id="top" aria-labelledby="journal-page-title">
+              <div className="page-width journal-page-hero__content">
+                <a className="journal-page-hero__back" href="/"><ArrowLeft size={17} /> Voltar ao site</a>
+                <p className="eyebrow eyebrow--light">Conteúdos Silvia's Hair</p>
+                <h1 id="journal-page-title">Beleza em<br />conteúdo.</h1>
+                <p>Um espaço com novidades do salão, cuidados, procedimentos e inspirações para acompanhar cada escolha com mais informação.</p>
+              </div>
+            </section>
+
+            <section className="journal journal-page section section--ivory" aria-labelledby="journal-index-title">
+              <div className="page-width">
+                <div className="section-heading section-heading--split journal__heading">
+                  <div><p className="eyebrow">Conteúdos e novidades</p><h2 id="journal-index-title">Novidades, beleza<br />e cuidado.</h2></div>
+                  <p>Artigos da equipe Silvia's Hair para conhecer tendências, entender procedimentos e preservar seus resultados.</p>
+                </div>
+                <div className="journal__layout">
+                  <article className="journal-feature">
+                    <img src={journalArticles[0].image} alt={journalArticles[0].alt} />
+                    <div className="journal-feature__body">
+                      <span className="journal-meta">{journalArticles[0].category} · {journalArticles[0].readTime}</span>
+                      <h3>{journalArticles[0].title}</h3>
+                      <p>{journalArticles[0].excerpt}</p>
+                      <button className="text-link text-link--light" type="button" onClick={() => setActiveArticle(journalArticles[0])}>Ler conteúdo <ArrowRight size={18} /></button>
+                    </div>
+                  </article>
+                  <div className="journal__side" aria-label="Mais conteúdos do Silvia's Hair">
+                    {journalArticles.slice(1).map((article) => (
+                      <article className="journal-card" key={article.title}>
+                        <img src={article.image} alt={article.alt} />
+                        <div className="journal-card__body">
+                          <span className="journal-meta">{article.category} · {article.readTime}</span>
+                          <h3>{article.title}</h3>
+                          <p>{article.excerpt}</p>
+                          <button className="text-link" type="button" onClick={() => setActiveArticle(article)}>Ler artigo <ArrowRight size={17} /></button>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+                <p className="journal__note">Conteúdos informativos não substituem a avaliação profissional. Procedimentos e recomendações podem variar para cada pessoa.</p>
+              </div>
+            </section>
+
+            <section className="journal-page-cta section section--beige">
+              <div className="page-width journal-page-cta__inner">
+                <div><p className="eyebrow">Atendimento personalizado</p><h2>Quer descobrir o cuidado ideal para você?</h2></div>
+                <AppButton href={whatsappUrl}>Conversar com a equipe</AppButton>
+              </div>
+            </section>
+
+            {activeArticle && (
+              <div className="article-modal" role="dialog" aria-modal="true" aria-labelledby="article-modal-title" onMouseDown={(event) => { if (event.target === event.currentTarget) setActiveArticle(null); }}>
+                <article className="article-modal__panel">
+                  <button ref={articleCloseRef} className="article-modal__close" type="button" aria-label="Fechar conteúdo" onClick={() => setActiveArticle(null)}><X size={22} /></button>
+                  <img src={activeArticle.image} alt={activeArticle.alt} />
+                  <div className="article-modal__body">
+                    <span className="journal-meta">{activeArticle.category} · {activeArticle.readTime}</span>
+                    <h2 id="article-modal-title">{activeArticle.title}</h2>
+                    {activeArticle.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                    <div className="article-modal__footer">
+                      <span>Conteúdo assinado pela equipe Silvia's Hair.</span>
+                      <AppButton href={whatsappForProcedure(activeArticle.message)}>Agendar este cuidado</AppButton>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            )}
+          </>
+        ) : (
+          <>
         <section className="hero" id="top" aria-labelledby="hero-title">
-          <img className="hero__image" src="/assets/hero-salon.png" alt="Interior elegante do Silvia's Hair" />
+          <img className="hero__image" src="/assets/hero-silvia.webp" alt="Sílvia Meneses realizando um corte no Silvia's Hair" />
           <div className="hero__veil" />
           <div className="hero__content page-width">
             <p className="eyebrow eyebrow--light">Referência em Teresina</p>
@@ -212,6 +410,70 @@ export function App() {
               ))}
             </div>
             <a className="text-link services__link" href="#resultados">Conheça nossos resultados <ArrowRight size={18} /></a>
+          </div>
+        </section>
+
+        <section className="combos section section--beige" id="combos">
+          <div className="page-width">
+            <div className="section-heading section-heading--split combos__heading">
+              <div><p className="eyebrow">Combos especiais</p><h2>Cuidados que<br />combinam com você.</h2></div>
+              <p>Condições especiais para reunir seus cuidados favoritos em uma única visita.</p>
+            </div>
+
+            <article className="combos__featured">
+              <div className="combos__featured-copy">
+                <p className="eyebrow eyebrow--light">Destaque da vez</p>
+                <h3>{featuredCombo.title}</h3>
+                <p>{featuredCombo.note}</p>
+              </div>
+              <div className="combos__featured-action">
+                <div className="combo-price combo-price--featured"><span>Valor especial</span><strong>{featuredCombo.price}</strong></div>
+                <AppButton href={whatsappForOffer(featuredCombo.title)} light>Quero este combo</AppButton>
+              </div>
+            </article>
+
+            <p className="combos__mobile-hint" aria-hidden="true"><span>Deslize para ver os combos</span><ArrowRight size={18} /></p>
+            <div className="combos__grid">
+              {comboOffers.map((offer, index) => (
+                <article className="combo-card" key={offer.title}>
+                  <span className="combo-card__number">{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{offer.title}</h3>
+                  {offer.detail && <p className="combo-card__detail">{offer.detail}</p>}
+                  <div className="combo-card__price">
+                    {offer.oldPrice && <del>de {offer.oldPrice}</del>}
+                    {offer.prefix && <small>{offer.prefix}</small>}
+                    <strong>{offer.price}</strong>
+                  </div>
+                  {offer.note && <p className="combo-card__note">{offer.note}</p>}
+                  <a className="text-link" href={whatsappForOffer(offer.title)} target="_blank" rel="noreferrer" aria-label={`Agendar ${offer.title} pelo WhatsApp`}>
+                    Agendar <WhatsappLogo size={18} weight="fill" aria-hidden="true" />
+                  </a>
+                </article>
+              ))}
+            </div>
+
+            <p className="combos__conditions">Ofertas válidas de segunda a quarta, exceto feriados. Consulte vigência, disponibilidade e formas de pagamento pelo WhatsApp.</p>
+
+            <aside className="combos__depilation" aria-labelledby="depilation-title">
+              <div className="combos__depilation-intro">
+                <span className="combos__depilation-icon" aria-hidden="true"><Feather size={30} weight="thin" /></span>
+                <div>
+                  <p className="eyebrow">Depilação</p>
+                  <h3 id="depilation-title">Cuidados para cada área, com delicadeza e conforto.</h3>
+                  <p>Uma seleção dos procedimentos disponíveis. Consulte a tabela completa e confirme os valores pelo WhatsApp.</p>
+                </div>
+                <AppButton href={whatsappForDepilation}>Consultar e agendar</AppButton>
+              </div>
+              <div className="combos__depilation-list">
+                {depilationOffers.map((offer) => (
+                  <div className="depilation-item" key={offer.title}>
+                    <span>{offer.title}</span>
+                    <strong>{offer.prefix && <small>{offer.prefix}</small>}{offer.price}</strong>
+                  </div>
+                ))}
+              </div>
+              <p className="combos__depilation-note">Valores de referência sujeitos à confirmação de vigência, método e avaliação profissional.</p>
+            </aside>
           </div>
         </section>
 
@@ -317,6 +579,18 @@ export function App() {
           </div>
         </section>
 
+        <section className="journal-teaser section section--ivory" id="conteudos">
+          <div className="page-width journal-teaser__inner">
+            <img src={journalArticles[0].image} alt={journalArticles[0].alt} />
+            <div className="journal-teaser__copy">
+              <p className="eyebrow">Conteúdos Silvia's Hair</p>
+              <h2>Beleza para<br />ler e descobrir.</h2>
+              <p>Este espaço reúne novidades do salão, tendências, procedimentos e orientações para cuidar de cada resultado.</p>
+              <AppButton href="/conteudos">Ver conteúdos e novidades</AppButton>
+            </div>
+          </div>
+        </section>
+
         <section className="units section section--black" id="unidades">
           <div className="page-width">
             <div className="section-heading section-heading--split section-heading--dark">
@@ -338,13 +612,15 @@ export function App() {
         </section>
 
         <section className="final-cta">
-          <img src="/assets/about-salon.png" alt="" aria-hidden="true" /><div className="final-cta__overlay" />
+          <img src="/assets/real/img_3815.webp" alt="" aria-hidden="true" /><div className="final-cta__overlay" />
           <div className="page-width final-cta__content">
             <p className="eyebrow eyebrow--light">Agende sua visita</p><h2>Seu próximo cuidado começa aqui.</h2>
             <p>Fale com nossa equipe e escolha o melhor horário em uma de nossas unidades.</p>
             <div><AppButton href={whatsappUrl} light>Agendar pelo WhatsApp</AppButton><a className="text-link text-link--light" href="#unidades">Encontrar uma unidade <ArrowRight size={18} /></a></div>
           </div>
         </section>
+          </>
+        )}
       </main>
 
       <footer className="footer">
