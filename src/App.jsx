@@ -119,6 +119,10 @@ const journalArticles = [
     readTime: "4 min de leitura",
     excerpt: "Planejamento, testes e cuidados que ajudam a viver o grande dia com mais tranquilidade.",
     image: "/assets/real/img_3809.webp", alt: "Produção de noiva realizada pelo Silvia's Hair", message: "para noiva",
+    gallery: [
+      { src: "/assets/news/noivas-buque.jpeg", alt: "Noiva com buquê em produção do Silvia's Hair" },
+      { src: "/assets/news/noivas-escada.jpeg", alt: "Noiva com véu durante a produção" },
+    ],
     body: [
       "A preparação da noiva começa bem antes da cerimônia. Uma conversa inicial ajuda a alinhar estilo, personalidade, vestido, acessórios e o resultado desejado para cabelo e maquiagem.",
       "Testes prévios e um cronograma de cuidados deixam o dia mais leve. Limpeza de pele, mudanças de cor e escolha dos acessórios devem ser planejadas com antecedência para que cada detalhe converse com o conjunto.",
@@ -380,7 +384,7 @@ export function App() {
                     <h2 id="article-modal-title">{activeArticle.title}</h2>
                     {activeArticle.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                     {activeArticle.gallery?.length > 0 && (
-                      <div className="article-modal__gallery" aria-label="Fotos da matéria">
+                      <div className={`article-modal__gallery${activeArticle.gallery.length === 2 ? " article-modal__gallery--compact" : ""}`} aria-label="Fotos da matéria">
                         {activeArticle.gallery.map((photo) => (
                           <figure key={photo.src}><img src={photo.src} alt={photo.alt} /></figure>
                         ))}
