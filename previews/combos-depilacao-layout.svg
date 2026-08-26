@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="2020" viewBox="0 0 1400 2020">
+  <style>
+    .serif { font-family: Georgia, 'Times New Roman', serif; fill: #1d1d1a; }
+    .sans { font-family: Arial, Helvetica, sans-serif; fill: #1d1d1a; }
+    .eyebrow { font-family: Arial, Helvetica, sans-serif; fill: #7f6641; font-size: 12px; font-weight: 700; letter-spacing: 3px; }
+    .eyebrow-light { font-family: Arial, Helvetica, sans-serif; fill: #d8c18f; font-size: 12px; font-weight: 700; letter-spacing: 3px; }
+    .muted-light { font-family: Arial, Helvetica, sans-serif; fill: #aaa499; }
+    .muted { fill: #726b61; }
+    .gold { fill: #b7975b; }
+    .ivory { fill: #f7f3ec; }
+    .card-title { font-family: Georgia, 'Times New Roman', serif; fill: #1d1d1a; font-size: 31px; }
+    .price { font-family: Arial, Helvetica, sans-serif; fill: #1d1d1a; font-size: 31px; font-weight: 700; letter-spacing: -1.2px; }
+    .line { stroke: #b7975b; stroke-width: 1; }
+  </style>
+
+  <rect width="1400" height="2020" fill="#e9e0d2"/>
+  <text x="70" y="72" class="eyebrow">COMBOS ESPECIAIS</text>
+  <text x="1330" y="72" class="sans muted" font-size="11" text-anchor="end" letter-spacing="2">SILVIA'S HAIR · PRÉVIA DO SITE</text>
+  <text x="70" y="145" class="serif" font-size="68" letter-spacing="-2">Cuidados que</text>
+  <text x="70" y="215" class="serif" font-size="68" letter-spacing="-2">combinam com você.</text>
+  <text x="820" y="154" class="sans muted" font-size="17">Condições especiais para reunir seus cuidados</text>
+  <text x="820" y="182" class="sans muted" font-size="17">favoritos em uma única visita.</text>
+
+  <rect x="70" y="270" width="1260" height="270" rx="16" fill="#121210"/>
+  <text x="112" y="320" class="eyebrow-light">DESTAQUE DA VEZ</text>
+  <text x="112" y="390" class="serif ivory" font-size="56" letter-spacing="-1.8">Escova + lavagem +</text>
+  <text x="112" y="450" class="serif ivory" font-size="56" letter-spacing="-1.8">manicure e pedicure</text>
+  <text x="112" y="494" class="muted-light" font-size="13">Exceto cabelo extra longo ou com mega hair.</text>
+  <text x="958" y="342" class="eyebrow-light" font-size="10">VALOR ESPECIAL</text>
+  <text x="958" y="396" class="sans ivory" font-size="42" font-weight="700" letter-spacing="-2">R$ 159,90</text>
+  <rect x="958" y="438" width="260" height="58" fill="#e9e0d2"/>
+  <text x="1088" y="474" class="sans" font-size="14" font-weight="700" text-anchor="middle">QUERO ESTE COMBO  ↗</text>
+
+  <!-- Linha 1 de ofertas -->
+  <g transform="translate(70 565)">
+    <rect width="300" height="310" rx="16" fill="#f7f3ec" fill-opacity=".72" stroke="#cfc5b6"/>
+    <text x="25" y="36" class="sans muted" font-size="10" letter-spacing="2">01</text><line x1="50" y1="32" x2="78" y2="32" class="line"/>
+    <text x="25" y="91" class="card-title">Manicure +</text><text x="25" y="127" class="card-title">pedicure</text>
+    <text x="25" y="200" class="sans muted" font-size="11" text-decoration="line-through">DE R$ 80,00</text>
+    <text x="25" y="240" class="price">R$ 70,00</text>
+    <text x="25" y="283" class="sans" font-size="12" font-weight="700">AGENDAR  ↗</text><line x1="25" y1="292" x2="108" y2="292" class="line"/>
+  </g>
+  <g transform="translate(390 565)">
+    <rect width="300" height="310" rx="16" fill="#f7f3ec" fill-opacity=".72" stroke="#cfc5b6"/>
+    <text x="25" y="36" class="sans muted" font-size="10" letter-spacing="2">02</text><line x1="50" y1="32" x2="78" y2="32" class="line"/>
+    <text x="25" y="91" class="card-title">Escova +</text><text x="25" y="127" class="card-title">higienização Wella</text>
+    <text x="25" y="210" class="price">R$ 100,00</text>
+    <text x="25" y="239" class="sans muted" font-size="10">Exceto cabelo extra longo</text><text x="25" y="255" class="sans muted" font-size="10">ou com mega hair.</text>
+    <text x="25" y="283" class="sans" font-size="12" font-weight="700">AGENDAR  ↗</text><line x1="25" y1="292" x2="108" y2="292" class="line"/>
+  </g>
+  <g transform="translate(710 565)">
+    <rect width="300" height="310" rx="16" fill="#f7f3ec" fill-opacity=".72" stroke="#cfc5b6"/>
+    <text x="25" y="36" class="sans muted" font-size="10" letter-spacing="2">03</text><line x1="50" y1="32" x2="78" y2="32" class="line"/>
+    <text x="25" y="91" class="card-title">Sobrancelhas</text>
+    <text x="25" y="200" class="sans muted" font-size="11" text-decoration="line-through">DE R$ 40,00</text>
+    <text x="25" y="240" class="price">R$ 30,00</text>
+    <text x="25" y="283" class="sans" font-size="12" font-weight="700">AGENDAR  ↗</text><line x1="25" y1="292" x2="108" y2="292" class="line"/>
+  </g>
+  <g transform="translate(1030 565)">
+    <rect width="300" height="310" rx="16" fill="#f7f3ec" fill-opacity=".72" stroke="#cfc5b6"/>
+    <text x="25" y="36" class="sans muted" font-size="10" letter-spacing="2">04</text><line x1="50" y1="32" x2="78" y2="32" class="line"/>
+    <text x="25" y="91" class="card-title">Alongamento</text><text x="25" y="127" class="card-title">de cílios</text>
+    <text x="25" y="154" class="sans muted" font-size="11">Fio a fio ou brasileiro</text>
+    <text x="25" y="200" class="sans muted" font-size="11" text-decoration="line-through">DE R$ 180,00</text>
+    <text x="25" y="240" class="price">R$ 150,00</text>
+    <text x="25" y="283" class="sans" font-size="12" font-weight="700">AGENDAR  ↗</text><line x1="25" y1="292" x2="108" y2="292" class="line"/>
+  </g>
+
+  <!-- Linha 2 de ofertas -->
+  <g transform="translate(70 895)">
+    <rect width="300" height="310" rx="16" fill="#f7f3ec" fill-opacity=".72" stroke="#cfc5b6"/>
+    <text x="25" y="36" class="sans muted" font-size="10" letter-spacing="2">05</text><line x1="50" y1="32" x2="78" y2="32" class="line"/>
+    <text x="25" y="91" class="card-title">Selagem feminina</text>
+    <text x="25" y="190" class="sans muted" font-size="10" letter-spacing="1.5">A PARTIR DE</text>
+    <text x="25" y="232" class="price">R$ 200,00</text>
+    <text x="25" y="283" class="sans" font-size="12" font-weight="700">AGENDAR  ↗</text><line x1="25" y1="292" x2="108" y2="292" class="line"/>
+  </g>
+  <g transform="translate(390 895)">
+    <rect width="300" height="310" rx="16" fill="#f7f3ec" fill-opacity=".72" stroke="#cfc5b6"/>
+    <text x="25" y="36" class="sans muted" font-size="10" letter-spacing="2">06</text><line x1="50" y1="32" x2="78" y2="32" class="line"/>
+    <text x="25" y="84" class="card-title">Hidratação Wella</text><text x="25" y="120" class="card-title">ou L’Oréal + escova</text>
+    <text x="25" y="201" class="price">R$ 180,00</text>
+    <text x="25" y="231" class="sans muted" font-size="10">Exceto cabelo extra longo</text><text x="25" y="247" class="sans muted" font-size="10">ou com mega hair.</text>
+    <text x="25" y="283" class="sans" font-size="12" font-weight="700">AGENDAR  ↗</text><line x1="25" y1="292" x2="108" y2="292" class="line"/>
+  </g>
+  <g transform="translate(710 895)">
+    <rect width="300" height="310" rx="16" fill="#f7f3ec" fill-opacity=".72" stroke="#cfc5b6"/>
+    <text x="25" y="36" class="sans muted" font-size="10" letter-spacing="2">07</text><line x1="50" y1="32" x2="78" y2="32" class="line"/>
+    <text x="25" y="91" class="card-title">Corte feminino</text>
+    <text x="25" y="200" class="sans muted" font-size="11" text-decoration="line-through">DE R$ 120,00</text>
+    <text x="25" y="240" class="price">R$ 100,00</text>
+    <text x="25" y="283" class="sans" font-size="12" font-weight="700">AGENDAR  ↗</text><line x1="25" y1="292" x2="108" y2="292" class="line"/>
+  </g>
+  <g transform="translate(1030 895)">
+    <rect width="300" height="310" rx="16" fill="#f7f3ec" fill-opacity=".72" stroke="#cfc5b6"/>
+    <text x="25" y="36" class="sans muted" font-size="10" letter-spacing="2">08</text><line x1="50" y1="32" x2="78" y2="32" class="line"/>
+    <text x="25" y="91" class="card-title">Mega hair</text>
+    <text x="25" y="190" class="sans muted" font-size="10" letter-spacing="1.5">A PARTIR DE</text>
+    <text x="25" y="232" class="price">R$ 1.000,00</text>
+    <text x="25" y="283" class="sans" font-size="12" font-weight="700">AGENDAR  ↗</text><line x1="25" y1="292" x2="108" y2="292" class="line"/>
+  </g>
+
+  <text x="70" y="1245" class="sans muted" font-size="11">Ofertas válidas de segunda a quarta, exceto feriados. Consulte vigência, disponibilidade e formas de pagamento pelo WhatsApp.</text>
+
+  <!-- Depilação -->
+  <rect x="70" y="1300" width="1260" height="640" rx="16" fill="#f7f3ec"/>
+  <line x1="70" y1="1300" x2="1330" y2="1300" class="line"/>
+  <circle cx="125" cy="1380" r="36" fill="none" stroke="#b7975b"/>
+  <path d="M114 1392c16-8 27-22 30-43-18 6-31 20-30 43Zm2-7c10-2 21-9 29-20" fill="none" stroke="#816738" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="185" y="1351" class="eyebrow">DEPILAÇÃO</text>
+  <text x="185" y="1400" class="serif" font-size="43" letter-spacing="-1">Cuidados para cada área,</text>
+  <text x="185" y="1447" class="serif" font-size="43" letter-spacing="-1">com delicadeza e conforto.</text>
+  <text x="185" y="1482" class="sans muted" font-size="13">Uma seleção dos procedimentos disponíveis. Consulte a tabela completa e confirme os valores.</text>
+  <rect x="1030" y="1370" width="240" height="58" fill="#121210"/>
+  <text x="1150" y="1406" class="sans ivory" font-size="13" font-weight="700" text-anchor="middle">CONSULTAR E AGENDAR  ↗</text>
+
+  <g transform="translate(110 1540)">
+    <rect width="380" height="112" fill="none" stroke="#d4ccbf"/>
+    <text x="24" y="62" class="serif" font-size="26">Buço</text><text x="352" y="62" class="sans" font-size="21" font-weight="700" text-anchor="end">R$ 25,00</text>
+  </g>
+  <g transform="translate(490 1540)">
+    <rect width="380" height="112" fill="none" stroke="#d4ccbf"/>
+    <text x="24" y="62" class="serif" font-size="26">Axilas</text><text x="352" y="62" class="sans" font-size="21" font-weight="700" text-anchor="end">R$ 40,00</text>
+  </g>
+  <g transform="translate(870 1540)">
+    <rect width="420" height="112" fill="none" stroke="#d4ccbf"/>
+    <text x="24" y="62" class="serif" font-size="26">Meia perna</text><text x="392" y="62" class="sans" font-size="21" font-weight="700" text-anchor="end">R$ 40,00</text>
+  </g>
+  <g transform="translate(110 1652)">
+    <rect width="380" height="112" fill="none" stroke="#d4ccbf"/>
+    <text x="24" y="62" class="serif" font-size="26">Perna completa</text><text x="352" y="62" class="sans" font-size="21" font-weight="700" text-anchor="end">R$ 90,00</text>
+  </g>
+  <g transform="translate(490 1652)">
+    <rect width="380" height="112" fill="none" stroke="#d4ccbf"/>
+    <text x="24" y="49" class="serif" font-size="26">Costas na cera</text><text x="352" y="40" class="sans muted" font-size="9" font-weight="700" text-anchor="end" letter-spacing="1">A PARTIR DE</text><text x="352" y="72" class="sans" font-size="21" font-weight="700" text-anchor="end">R$ 70,00</text>
+  </g>
+  <g transform="translate(870 1652)">
+    <rect width="420" height="112" fill="none" stroke="#d4ccbf"/>
+    <text x="24" y="49" class="serif" font-size="26">Barriga</text><text x="392" y="40" class="sans muted" font-size="9" font-weight="700" text-anchor="end" letter-spacing="1">A PARTIR DE</text><text x="392" y="72" class="sans" font-size="21" font-weight="700" text-anchor="end">R$ 40,00</text>
+  </g>
+  <text x="110" y="1810" class="sans muted" font-size="11">Valores de referência sujeitos à confirmação de vigência, método e avaliação profissional.</text>
+  <line x1="110" y1="1870" x2="1290" y2="1870" stroke="#d4ccbf"/>
+  <text x="110" y="1905" class="eyebrow">SILVIA'S HAIR</text>
+  <text x="1290" y="1905" class="sans muted" font-size="11" text-anchor="end">COMBOS + DEPILAÇÃO · CONCEITO PARA APROVAÇÃO</text>
+</svg>

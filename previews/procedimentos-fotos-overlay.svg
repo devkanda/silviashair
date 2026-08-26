@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="720" viewBox="0 0 1400 720">
+  <style>
+    .serif { font-family: Georgia, 'Times New Roman', serif; fill: #f7f3ec; }
+    .sans { font-family: Arial, Helvetica, sans-serif; fill: #f7f3ec; }
+    .muted-light { font-family: Arial, Helvetica, sans-serif; fill: #aaa499; }
+    .eyebrow { font-family: Arial, Helvetica, sans-serif; fill: #d8c18f; font-size: 12px; font-weight: 700; letter-spacing: 3px; }
+  </style>
+  <defs>
+    <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="48%" stop-color="#080807" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#080807" stop-opacity=".9"/>
+    </linearGradient>
+  </defs>
+
+  <text x="70" y="70" class="eyebrow">PROCEDIMENTOS EM DESTAQUE</text>
+  <text x="70" y="145" class="serif" font-size="62" letter-spacing="-2">Veja cada cuidado de perto.</text>
+  <text x="820" y="96" class="muted-light" font-size="16">Um espaço para apresentar fotos reais dos resultados,</text>
+  <text x="820" y="124" class="muted-light" font-size="16">reforçar a qualidade e facilitar a escolha do procedimento.</text>
+
+  <rect x="70" y="205" width="475" height="430" rx="16" fill="url(#shade)"/>
+  <rect x="565" y="205" width="245" height="430" rx="16" fill="url(#shade)"/>
+  <rect x="830" y="205" width="245" height="430" rx="16" fill="url(#shade)"/>
+  <rect x="1095" y="205" width="235" height="430" rx="16" fill="url(#shade)"/>
+
+  <text x="98" y="577" class="eyebrow" font-size="9">PROCEDIMENTO</text>
+  <text x="98" y="613" class="serif" font-size="37">Mega hair</text>
+  <text x="590" y="577" class="eyebrow" font-size="9">PROCEDIMENTO</text>
+  <text x="590" y="613" class="serif" font-size="31">Nail design</text>
+  <text x="855" y="577" class="eyebrow" font-size="9">PROCEDIMENTO</text>
+  <text x="855" y="613" class="serif" font-size="31">Penteado</text>
+  <text x="1120" y="577" class="eyebrow" font-size="9">PROCEDIMENTO</text>
+  <text x="1120" y="613" class="serif" font-size="31">Maquiagem</text>
+
+  <text x="70" y="682" class="muted-light" font-size="11">As imagens desta prévia servem apenas para demonstrar a composição e poderão ser substituídas pelas fotos aprovadas.</text>
+</svg>

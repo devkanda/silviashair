@@ -89,6 +89,32 @@ const reviews = [
 
 const journalArticles = [
   {
+    category: "Reconhecimento",
+    date: "27 de fevereiro de 2026",
+    title: "Silvia's Hair está entre as Marcas Inesquecíveis 2025",
+    readTime: "3 min de leitura",
+    excerpt: "O reconhecimento celebra uma trajetória construída com cuidado, confiança e presença na memória dos piauienses.",
+    image: "/assets/news/marcas-inesqueciveis-entrevista.webp",
+    alt: "Sílvia Meneses durante entrevista no evento Marcas Inesquecíveis 2025",
+    ctaHref: whatsappUrl,
+    ctaLabel: "Agendar um horário",
+    source: "https://portalodia.com/marcas-inesqueciveis-2025/marcas-inesqueciveis-2025-veja-como-foi-o-evento-que-premiou-as-empresas-mais-lembradas-pelos-piauienses-455146.html",
+    gallery: [
+      { src: "/assets/news/marcas-inesqueciveis-painel.webp", alt: "Sílvia Meneses diante do painel do Marcas Inesquecíveis 2025" },
+      { src: "/assets/news/marcas-inesqueciveis-premiacao.jpg", alt: "Sílvia Meneses recebendo o troféu no evento Marcas Inesquecíveis 2025" },
+      { src: "/assets/news/marcas-inesqueciveis-silvia-destaque.webp", alt: "Sílvia Meneses no evento Marcas Inesquecíveis 2025" },
+      { src: "/assets/news/marcas-inesqueciveis-palco.webp", alt: "Sílvia Meneses durante a cerimônia do Marcas Inesquecíveis 2025" },
+      { src: "/assets/news/marcas-inesqueciveis-recepcao.jpg", alt: "Sílvia Meneses no evento Marcas Inesquecíveis 2025" },
+    ],
+    photoCredit: "Créditos: Rômulo Piauilino e Assis Fernandes / O Dia.",
+    body: [
+      "O Silvia's Hair viveu uma noite especial ao ser reconhecido entre as empresas mais lembradas pelos piauienses na 11ª edição do Marcas Inesquecíveis 2025.",
+      "Realizada no Theresina Hall, a premiação reuniu 29 marcas de diferentes segmentos, escolhidas a partir do levantamento Top of Mind promovido pelo Sistema O Dia.",
+      "Para Sílvia Meneses, o reconhecimento traduz uma história construída diariamente com dedicação, atendimento próximo e a confiança de clientes que acompanham o salão ao longo dos anos.",
+      "Mais do que uma celebração, a conquista reforça o compromisso do Silvia's Hair de continuar evoluindo sem perder aquilo que tornou a marca inesquecível: cuidado, técnica e personalidade.",
+    ],
+  },
+  {
     category: "Noivas", title: "Dia de Noiva: como se preparar para o grande momento",
     readTime: "4 min de leitura",
     excerpt: "Planejamento, testes e cuidados que ajudam a viver o grande dia com mais tranquilidade.",
@@ -129,6 +155,8 @@ const journalArticles = [
     ],
   },
 ];
+
+const journalMeta = (article) => [article.category, article.date, article.readTime].filter(Boolean).join(" · ");
 
 const getInitials = (name) => name
   .split(" ")
@@ -311,7 +339,7 @@ export function App() {
                   <article className="journal-feature">
                     <img src={journalArticles[0].image} alt={journalArticles[0].alt} />
                     <div className="journal-feature__body">
-                      <span className="journal-meta">{journalArticles[0].category} · {journalArticles[0].readTime}</span>
+                      <span className="journal-meta">{journalMeta(journalArticles[0])}</span>
                       <h3>{journalArticles[0].title}</h3>
                       <p>{journalArticles[0].excerpt}</p>
                       <button className="text-link text-link--light" type="button" onClick={() => setActiveArticle(journalArticles[0])}>Ler conteúdo <ArrowRight size={18} /></button>
@@ -322,7 +350,7 @@ export function App() {
                       <article className="journal-card" key={article.title}>
                         <img src={article.image} alt={article.alt} />
                         <div className="journal-card__body">
-                          <span className="journal-meta">{article.category} · {article.readTime}</span>
+                          <span className="journal-meta">{journalMeta(article)}</span>
                           <h3>{article.title}</h3>
                           <p>{article.excerpt}</p>
                           <button className="text-link" type="button" onClick={() => setActiveArticle(article)}>Ler artigo <ArrowRight size={17} /></button>
@@ -348,12 +376,25 @@ export function App() {
                   <button ref={articleCloseRef} className="article-modal__close" type="button" aria-label="Fechar conteúdo" onClick={() => setActiveArticle(null)}><X size={22} /></button>
                   <img src={activeArticle.image} alt={activeArticle.alt} />
                   <div className="article-modal__body">
-                    <span className="journal-meta">{activeArticle.category} · {activeArticle.readTime}</span>
+                    <span className="journal-meta">{journalMeta(activeArticle)}</span>
                     <h2 id="article-modal-title">{activeArticle.title}</h2>
                     {activeArticle.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                    {activeArticle.gallery?.length > 0 && (
+                      <div className="article-modal__gallery" aria-label="Fotos da matéria">
+                        {activeArticle.gallery.map((photo) => (
+                          <figure key={photo.src}><img src={photo.src} alt={photo.alt} /></figure>
+                        ))}
+                      </div>
+                    )}
+                    {activeArticle.photoCredit && <p className="article-modal__credit">{activeArticle.photoCredit}</p>}
+                    {activeArticle.source && (
+                      <a className="article-modal__source" href={activeArticle.source} target="_blank" rel="noreferrer">
+                        Ler a cobertura completa no Portal O Dia <ArrowUpRight size={17} />
+                      </a>
+                    )}
                     <div className="article-modal__footer">
                       <span>Conteúdo assinado pela equipe Silvia's Hair.</span>
-                      <AppButton href={whatsappForProcedure(activeArticle.message)}>Agendar este cuidado</AppButton>
+                      <AppButton href={activeArticle.ctaHref || whatsappForProcedure(activeArticle.message)}>{activeArticle.ctaLabel || "Agendar este cuidado"}</AppButton>
                     </div>
                   </div>
                 </article>
@@ -583,10 +624,10 @@ export function App() {
           <div className="page-width journal-teaser__inner">
             <img src={journalArticles[0].image} alt={journalArticles[0].alt} />
             <div className="journal-teaser__copy">
-              <p className="eyebrow">Conteúdos Silvia's Hair</p>
-              <h2>Beleza para<br />ler e descobrir.</h2>
-              <p>Este espaço reúne novidades do salão, tendências, procedimentos e orientações para cuidar de cada resultado.</p>
-              <AppButton href="/conteudos">Ver conteúdos e novidades</AppButton>
+              <p className="eyebrow">Reconhecimento</p>
+              <h2>Uma marca<br />inesquecível.</h2>
+              <p>O Silvia's Hair está entre as Marcas Inesquecíveis 2025. Conheça esse capítulo especial da nossa história.</p>
+              <AppButton href="/conteudos">Conhecer a novidade</AppButton>
             </div>
           </div>
         </section>
