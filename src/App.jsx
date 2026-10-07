@@ -149,13 +149,17 @@ const journalArticles = [
     ],
   },
   {
-    category: "Unhas", title: "Unhas alongadas: cuidados essenciais no dia a dia",
+    category: "Unhas", title: "Cuidados essenciais para unhas bonitas no dia a dia",
     readTime: "3 min de leitura",
-    excerpt: "Pequenas atitudes para manter o acabamento bonito até a próxima manutenção.",
-    image: "/assets/real/img_3831.webp", alt: "Unhas alongadas com acabamento delicado", message: "de nail design",
+    excerpt: "Hábitos simples para preservar a saúde, o brilho e o acabamento das unhas em qualquer estilo.",
+    image: "/assets/real/img_3831.webp", alt: "Unhas bem cuidadas com acabamento delicado", message: "de nail design",
+    gallery: [
+      { src: "/assets/news/unhas-lampada.webp", alt: "Mãos sob lâmpada UV durante procedimento de unhas" },
+      { src: "/assets/news/unhas-francesinha.webp", alt: "Unhas alongadas com acabamento francesinha em tom rosado" },
+    ],
     body: [
-      "Evitar impactos, usar luvas ao manusear produtos de limpeza e não remover o material em casa ajuda a preservar as unhas e o acabamento.",
-      "A manutenção deve ser feita no período orientado pela profissional. Assim, é possível acompanhar o crescimento, corrigir eventuais descolamentos e manter as unhas cuidadas com segurança.",
+      "Evitar impactos, usar luvas ao manusear produtos de limpeza e manter as unhas hidratadas ajuda a preservar a saúde e o acabamento em qualquer estilo.",
+      "Na hora de fazer a manutenção, conte com uma profissional para avaliar o crescimento, corrigir desgastes e indicar os cuidados mais adequados para as suas unhas.",
     ],
   },
 ];

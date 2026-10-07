@@ -173,7 +173,7 @@ h1, h2, h3 { margin: 0; font-family: "Cormorant Garamond", Georgia, serif; font-
 .marquee__track { display: flex; width: max-content; gap: 16px; animation: galleryMove 50s linear infinite; }
 .marquee:hover .marquee__track { animation-play-state: paused; }
 .marquee img { width: 300px; height: 390px; flex: 0 0 auto; object-fit: cover; filter: saturate(.82); border-radius: var(--image-radius); }
-.marquee img.works-image--waves { object-fit: contain; object-position: center center; background: #1b1916; }
+.marquee img.works-image--waves { object-fit: cover; object-position: center center; }
 @keyframes galleryMove { to { transform: translateX(calc(-50% - 8px)); } }
 .works__footer { min-height: 116px; display: flex; align-items: center; justify-content: center; border-top: 1px solid rgba(255,255,255,.12); }
 .works__footer .text-link svg:first-child { color: var(--gold); }
