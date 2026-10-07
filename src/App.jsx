@@ -120,8 +120,8 @@ const journalArticles = [
     excerpt: "Planejamento, testes e cuidados que ajudam a viver o grande dia com mais tranquilidade.",
     image: "/assets/real/img_3809.webp", alt: "Produção de noiva realizada pelo Silvia's Hair", message: "para noiva",
     gallery: [
-      { src: "/assets/news/noivas-buque.jpeg", alt: "Noiva com buquê em produção do Silvia's Hair" },
-      { src: "/assets/news/noivas-escada.jpeg", alt: "Noiva com véu durante a produção" },
+      { src: "/assets/news/noivas-buque-otimizada.jpg", alt: "Noiva com buquê em produção do Silvia's Hair" },
+      { src: "/assets/news/noivas-escada-otimizada.jpg", alt: "Noiva com véu durante a produção" },
     ],
     body: [
       "A preparação da noiva começa bem antes da cerimônia. Uma conversa inicial ajuda a alinhar estilo, personalidade, vestido, acessórios e o resultado desejado para cabelo e maquiagem.",
