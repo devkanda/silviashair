@@ -59,7 +59,7 @@ const depilationOffers = [
 
 const gallery = [
   { src: "/assets/real/img_3833.webp", alt: "Finalização de cabelo com escova no Silvia's Hair" },
-  { src: "/assets/real/img_3807.webp", alt: "Produção de noiva com penteado e maquiagem" },
+  { src: "/assets/real/beleza-movimento-ondas.webp", alt: "Cabelo ondulado com mechas e acabamento no Silvia's Hair" },
   { src: "/assets/real/img_3805.webp", alt: "Manicure com francesinha delicada" },
   { src: "/assets/real/img_3830.webp", alt: "Corte infantil realizado na barbearia Silvia's Hair" },
   { src: "/assets/real/procedure-maquiagem-alt.webp", alt: "Maquiagem com acabamento sofisticado" },
@@ -69,7 +69,7 @@ const gallery = [
 ];
 
 const resultServices = [
-  { title: "Megahair", message: "de megahair", src: "/assets/real/img_3833.webp", alt: "Cabelo longo com movimento e acabamento natural no Silvia's Hair" },
+  { title: "Megahair", message: "de megahair", src: "/assets/real/mega-hair-novo.webp", alt: "Mega Hair longo e alinhado no Silvia's Hair" },
   { title: "Penteado", message: "de penteado", src: "/assets/real/portfolio-penteado.webp", alt: "Penteado com acabamento elaborado realizado no Silvia's Hair" },
   { title: "Maquiagem", message: "de maquiagem", src: "/assets/real/img_3804.webp", alt: "Maquiagem com acabamento iluminado realizada no Silvia's Hair" },
   { title: "Noiva", message: "para noiva", src: "/assets/real/portfolio-noiva.webp", alt: "Produção de noiva realizada pelo Silvia's Hair" },
@@ -172,13 +172,13 @@ const getInitials = (name) => name
 
 const units = [
   {
-    name: "Teresina Shopping", image: "/assets/real/img_3819.webp", imageAlt: "Espaço interno da unidade Teresina Shopping",
+    name: "Teresina Shopping", image: "/assets/real/unidade-teresina-shopping.webp", imageAlt: "Fachada da unidade Silvia's Hair no Teresina Shopping",
     address: "Av. Raul Lopes, 1000 · Lojas 267/268/269 · Teresina — PI",
     hours: "Segunda a sábado, 10h às 22h · Domingos, 14h às 20h",
     maps: "https://www.google.com/maps/search/?api=1&query=Silvia%27s+Hair+Teresina+Shopping",
   },
   {
-    name: "Shopping Rio Poty", image: "/assets/real/img_3813.webp", imageAlt: "Espaço de beleza da unidade Shopping Rio Poty",
+    name: "Shopping Rio Poty", image: "/assets/real/unidade-rio-poty.webp", imageAlt: "Fachada da unidade Silvia's Hair no Shopping Rio Poty",
     address: "Av. Marechal Castelo Branco, 911 · Piso L3 · Teresina — PI",
     hours: "Segunda a sábado, 10h às 22h · Domingos, 15h às 21h",
     maps: "https://www.google.com/maps/search/?api=1&query=Silvia%27s+Hair+Shopping+Rio+Poty",
@@ -352,7 +352,6 @@ export function App() {
                   <div className="journal__side" aria-label="Mais conteúdos do Silvia's Hair">
                     {journalArticles.slice(1).map((article) => (
                       <article className="journal-card" key={article.title}>
-                        <img src={article.image} alt={article.alt} />
                         <div className="journal-card__body">
                           <span className="journal-meta">{journalMeta(article)}</span>
                           <h3>{article.title}</h3>
@@ -378,7 +377,6 @@ export function App() {
               <div className="article-modal" role="dialog" aria-modal="true" aria-labelledby="article-modal-title" onMouseDown={(event) => { if (event.target === event.currentTarget) setActiveArticle(null); }}>
                 <article className="article-modal__panel">
                   <button ref={articleCloseRef} className="article-modal__close" type="button" aria-label="Fechar conteúdo" onClick={() => setActiveArticle(null)}><X size={22} /></button>
-                  <img src={activeArticle.image} alt={activeArticle.alt} />
                   <div className="article-modal__body">
                     <span className="journal-meta">{journalMeta(activeArticle)}</span>
                     <h2 id="article-modal-title">{activeArticle.title}</h2>
@@ -434,7 +432,7 @@ export function App() {
               <a className="text-link" href="#servicos">Explore nossos serviços <ArrowRight size={18} /></a>
             </div>
             <figure className="about__media">
-              <img src="/assets/silvia-meneses.png" alt="Sílvia Meneses no salão segurando suas tesouras de cabeleireira" />
+              <img src="/assets/real/silvia-profissional-secador.webp" alt="Sílvia Meneses trabalhando com secador e modelador no salão" />
               <figcaption><span>25+</span> anos de experiência</figcaption>
             </figure>
           </div>
@@ -559,7 +557,7 @@ export function App() {
           </p>
           <div className="marquee" aria-label="Galeria de trabalhos em sequência contínua; no celular, deslize para ver mais" onScroll={keepGalleryLooping}>
             <div className="marquee__track">
-              {[...gallery, ...gallery].map((item, index) => <img key={`${item.src}-${index}`} src={item.src} alt={index < gallery.length ? item.alt : ""} aria-hidden={index >= gallery.length} loading={index < gallery.length ? "lazy" : "eager"} />)}
+              {[...gallery, ...gallery].map((item, index) => <img className={item.src.includes("beleza-movimento") ? "works-image--waves" : ""} key={`${item.src}-${index}`} src={item.src} alt={index < gallery.length ? item.alt : ""} aria-hidden={index >= gallery.length} loading={index < gallery.length ? "lazy" : "eager"} />)}
             </div>
           </div>
           <div className="page-width works__footer">
@@ -657,7 +655,7 @@ export function App() {
         </section>
 
         <section className="final-cta">
-          <img src="/assets/real/img_3815.webp" alt="" aria-hidden="true" /><div className="final-cta__overlay" />
+          <img src="/assets/real/final-cta-equipe.jpg" alt="" aria-hidden="true" /><div className="final-cta__overlay" />
           <div className="page-width final-cta__content">
             <p className="eyebrow eyebrow--light">Agende sua visita</p><h2>Seu próximo cuidado começa aqui.</h2>
             <p>Fale com nossa equipe e escolha o melhor horário em uma de nossas unidades.</p>
