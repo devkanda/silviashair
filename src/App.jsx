@@ -101,10 +101,10 @@ const journalArticles = [
     source: "https://portalodia.com/marcas-inesqueciveis-2025/marcas-inesqueciveis-2025-veja-como-foi-o-evento-que-premiou-as-empresas-mais-lembradas-pelos-piauienses-455146.html",
     gallery: [
       { src: "/assets/news/marcas-inesqueciveis-painel.webp", alt: "Sílvia Meneses diante do painel do Marcas Inesquecíveis 2025" },
-      { src: "/assets/news/marcas-inesqueciveis-premiacao.jpg", alt: "Sílvia Meneses recebendo o troféu no evento Marcas Inesquecíveis 2025" },
+      { src: "/assets/news/marcas-inesqueciveis-premiacao-otimizada.jpg", alt: "Sílvia Meneses recebendo o troféu no evento Marcas Inesquecíveis 2025" },
       { src: "/assets/news/marcas-inesqueciveis-silvia-destaque.webp", alt: "Sílvia Meneses no evento Marcas Inesquecíveis 2025" },
       { src: "/assets/news/marcas-inesqueciveis-palco.webp", alt: "Sílvia Meneses durante a cerimônia do Marcas Inesquecíveis 2025" },
-      { src: "/assets/news/marcas-inesqueciveis-recepcao.jpg", alt: "Sílvia Meneses no evento Marcas Inesquecíveis 2025" },
+      { src: "/assets/news/marcas-inesqueciveis-recepcao-otimizada.jpg", alt: "Sílvia Meneses no evento Marcas Inesquecíveis 2025" },
     ],
     photoCredit: "Créditos: Rômulo Piauilino e Assis Fernandes / O Dia.",
     body: [
