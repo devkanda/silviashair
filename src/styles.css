@@ -19,18 +19,38 @@ button { color: inherit; }
 .section--ivory { background: var(--ivory); }
 .section--black { background: var(--black); color: var(--ivory); }
 
-.brand-intro { position: fixed; z-index: 100; inset: 0; display: grid; place-content: center; place-items: center; gap: 28px; background: #0d0d0c; color: var(--ivory); will-change: opacity, transform; animation: brandIntroCurtain 1.85s cubic-bezier(.65,0,.2,1) both; }
-.brand-intro__lockup { display: flex; align-items: center; gap: 25px; }
+.brand-intro { position: fixed; z-index: 100; inset: 0; display: grid; place-content: center; place-items: center; gap: 28px; background: #0d0d0c; color: var(--ivory); will-change: opacity, transform; animation: brandIntroCurtain 2.45s cubic-bezier(.65,0,.2,1) both; }
+.brand-intro__lockup { display: flex; align-items: center; gap: 25px; transform-origin: center; will-change: transform, opacity; animation: brandIntroLockup 1.55s cubic-bezier(.22,.8,.25,1) both; }
 .brand-intro__mark { width: 67px; height: 92px; flex: 0 0 auto; background: var(--gold-light); -webkit-mask: url("/assets/silvias-mark.png") center / contain no-repeat; mask: url("/assets/silvias-mark.png") center / contain no-repeat; animation: brandIntroMark 1.24s cubic-bezier(.22,.8,.25,1) both; }
-.brand-intro__copy { display: flex; flex-direction: column; align-items: flex-start; }
+.brand-intro__copy { display: flex; flex-direction: column; align-items: flex-start; opacity: 0; animation: brandIntroCopySync .01s .22s forwards; }
 .brand-intro__copy strong { font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(52px, 5.2vw, 76px); font-weight: 400; line-height: .82; letter-spacing: -.04em; white-space: nowrap; animation: brandIntroWordmark 1.34s cubic-bezier(.22,.8,.25,1) both; }
 .brand-intro__copy small { margin-top: 17px; color: var(--gold-light); font-size: 9px; font-weight: 600; line-height: 1; letter-spacing: .3em; text-transform: uppercase; animation: brandIntroSignature 1.48s cubic-bezier(.22,.8,.25,1) both; }
 .brand-intro__rule { width: min(420px, 62vw); height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform-origin: center; animation: brandIntroRule 1.58s cubic-bezier(.22,.8,.25,1) both; }
-.site-shell--intro > main { will-change: opacity; animation: brandSiteReveal 1.85s cubic-bezier(.45,0,.2,1) both; }
-.site-shell--intro .site-header { animation: brandHeaderReveal 1.85s cubic-bezier(.22,.8,.25,1) both; }
-.site-shell--intro .hero__image { will-change: transform; animation: brandHeroReveal 1.85s cubic-bezier(.22,.8,.25,1) both; }
-.site-shell--intro .hero__content { animation: brandHeroCopyReveal 1.85s cubic-bezier(.22,.8,.25,1) both; }
+.site-shell--intro > main { will-change: opacity; animation: brandSiteReveal 2.45s cubic-bezier(.45,0,.2,1) both; }
+.site-shell--intro .site-header { animation: brandHeaderReveal 2.45s cubic-bezier(.22,.8,.25,1) both; }
+.site-shell--intro .hero__image { will-change: transform; animation: brandHeroReveal 2.45s cubic-bezier(.22,.8,.25,1) both; }
+.site-shell--intro .hero__content { animation: brandHeroCopyReveal 2.45s cubic-bezier(.22,.8,.25,1) both; }
 @keyframes brandIntroCurtain { 0%, 62% { opacity: 1; transform: scale(1); } 100% { opacity: 0; visibility: hidden; transform: scale(1.012); } }
+@keyframes brandIntroLockup { 0% { opacity: 0; transform: translate3d(0, 18px, 0); } 100% { opacity: 1; transform: translate3d(0, 0, 0); } }
+@keyframes brandIntroCopySync { to { opacity: 1; } }
+
+.brand-intro__lockup .brand-intro__mark,
+.brand-intro__lockup .brand-intro__copy strong,
+.brand-intro__lockup .brand-intro__copy small { animation: none; opacity: 1; transform: none; clip-path: none; }
+.brand-intro__copy strong span { display: inline-block; animation: brandIntroWave .9s cubic-bezier(.22,.8,.25,1) both; }
+.brand-intro__copy strong span:nth-child(1) { animation-delay: .08s; }
+.brand-intro__copy strong span:nth-child(2) { animation-delay: .13s; }
+.brand-intro__copy strong span:nth-child(3) { animation-delay: .18s; }
+.brand-intro__copy strong span:nth-child(4) { animation-delay: .23s; }
+.brand-intro__copy strong span:nth-child(5) { animation-delay: .28s; }
+.brand-intro__copy strong span:nth-child(6) { animation-delay: .33s; }
+.brand-intro__copy strong span:nth-child(7) { animation-delay: .38s; }
+.brand-intro__copy strong span:nth-child(8) { animation-delay: .43s; }
+.brand-intro__copy strong span:nth-child(9) { animation-delay: .48s; }
+.brand-intro__copy strong span:nth-child(10) { animation-delay: .53s; }
+.brand-intro__copy strong span:nth-child(11) { animation-delay: .58s; }
+.brand-intro__copy strong span:nth-child(12) { animation-delay: .63s; }
+@keyframes brandIntroWave { 0% { opacity: 0; transform: translateY(24px); } 45% { opacity: 1; transform: translateY(-9px); } 75% { transform: translateY(4px); } 100% { opacity: 1; transform: translateY(0); } }
 @keyframes brandIntroMark { 0%, 8% { opacity: 0; transform: translateX(-13px) scale(.94); } 42%, 100% { opacity: 1; transform: translateX(0) scale(1); } }
 @keyframes brandIntroWordmark { 0%, 13% { opacity: 0; clip-path: inset(0 100% 0 0); transform: translateY(7px); letter-spacing: .015em; } 48%, 100% { opacity: 1; clip-path: inset(0); transform: translateY(0); letter-spacing: -.04em; } }
 @keyframes brandIntroSignature { 0%, 28% { opacity: 0; transform: translateY(5px); letter-spacing: .48em; } 60%, 100% { opacity: 1; transform: translateY(0); letter-spacing: .3em; } }

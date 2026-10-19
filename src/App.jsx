@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   ArrowLeft, ArrowRight, ArrowUpRight, Crown, Drop, EnvelopeSimple, Eye,
-  FacebookLogo, Feather, FlowerLotus, InstagramLogo, List, MapPin, PaintBrush, Scissors,
+  FacebookLogo, Feather, FlowerLotus, InstagramLogo, List, MapPin, PaintBrush, Palette, Scissors,
   Sparkle, Star, WhatsappLogo, X,
 } from "@phosphor-icons/react";
 import "@fontsource/cormorant-garamond/400.css";
@@ -28,7 +28,7 @@ const services = [
   { icon: FlowerLotus, title: "Estética facial e corporal", text: "Cuidados faciais e corporais para renovar, hidratar e valorizar a saúde da pele." },
   { icon: Eye, title: "Estética avançada", text: "Procedimentos faciais e corporais avançados, definidos de acordo com a avaliação profissional." },
   { icon: Sparkle, title: "Penteados", text: "Criações para eventos, festas, noivas e ocasiões especiais." },
-  { icon: Eye, title: "Maquiagem", text: "Maquiagens personalizadas para realçar sua beleza com elegância." },
+  { icon: Palette, title: "Maquiagem", text: "Maquiagens personalizadas para realçar sua beleza com elegância." },
   { icon: Feather, title: "Depilação", text: "Cuidados para diferentes áreas do corpo, com atendimento delicado e atenção ao conforto." },
 ];
 
@@ -250,7 +250,7 @@ export function App() {
     const isPreview = new URLSearchParams(window.location.search).get("intro") === "1";
     if (!isPreview) window.sessionStorage.setItem("silvias-brand-intro-seen", "1");
 
-    const timer = window.setTimeout(() => setIntroVisible(false), 1850);
+    const timer = window.setTimeout(() => setIntroVisible(false), 2450);
     return () => {
       window.clearTimeout(timer);
     };
@@ -332,7 +332,7 @@ export function App() {
           <div className="brand-intro__lockup">
             <span className="brand-intro__mark" />
             <span className="brand-intro__copy">
-              <strong>Silvia's Hair</strong>
+              <strong>{Array.from("Silvia's Hair").map((letter, index) => <span key={`${letter}-${index}`}>{letter === " " ? "\u00a0" : letter}</span>)}</strong>
               <small>Estilo e Personalidade</small>
             </span>
           </div>
