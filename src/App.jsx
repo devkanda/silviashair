@@ -25,7 +25,8 @@ const services = [
   { icon: PaintBrush, title: "Coloração", text: "Coloração, tonalização, mechas e iluminação pensadas para valorizar cada estilo." },
   { icon: Crown, title: "Mega Hair", text: "Alongamentos com acabamento natural, volume e comprimento em perfeita harmonia." },
   { icon: Drop, title: "Tratamentos", text: "Hidratação, reconstrução, nutrição e recuperação da saúde dos fios." },
-  { icon: FlowerLotus, title: "Limpeza de pele", text: "Higienização profunda, esfoliação e cuidados para renovar a pele com delicadeza." },
+  { icon: FlowerLotus, title: "Estética facial e corporal", text: "Cuidados faciais e corporais para renovar, hidratar e valorizar a saúde da pele." },
+  { icon: Eye, title: "Estética avançada", text: "Procedimentos faciais e corporais avançados, definidos de acordo com a avaliação profissional." },
   { icon: Sparkle, title: "Penteados", text: "Criações para eventos, festas, noivas e ocasiões especiais." },
   { icon: Eye, title: "Maquiagem", text: "Maquiagens personalizadas para realçar sua beleza com elegância." },
   { icon: Feather, title: "Depilação", text: "Cuidados para diferentes áreas do corpo, com atendimento delicado e atenção ao conforto." },
@@ -33,44 +34,41 @@ const services = [
 
 const featuredCombo = {
   title: "Escova + lavagem + manicure e pedicure",
-  price: "R$ 159,90",
   note: "Exceto cabelo extra longo ou com mega hair.",
 };
 
 const comboOffers = [
-  { title: "Manicure + pedicure", oldPrice: "R$ 80,00", price: "R$ 70,00" },
-  { title: "Escova + higienização Wella", price: "R$ 100,00", note: "Exceto cabelo extra longo ou com mega hair." },
-  { title: "Sobrancelhas", oldPrice: "R$ 40,00", price: "R$ 30,00" },
-  { title: "Alongamento de cílios", detail: "Fio a fio ou brasileiro", oldPrice: "R$ 180,00", price: "R$ 150,00" },
-  { title: "Selagem feminina", prefix: "A partir de", price: "R$ 200,00" },
-  { title: "Hidratação Wella ou L’Oréal + escova", price: "R$ 180,00", note: "Exceto cabelo extra longo ou com mega hair." },
-  { title: "Corte feminino", oldPrice: "R$ 120,00", price: "R$ 100,00" },
-  { title: "Mega hair", prefix: "A partir de", price: "R$ 1.000,00" },
+  { title: "Manicure + pedicure", description: "Cuidados completos para mãos e pés, com acabamento delicado." },
+  { title: "Escova + higienização Wella", description: "Limpeza e finalização para devolver movimento e brilho aos fios." },
+  { title: "Sobrancelhas", description: "Design personalizado para valorizar o formato do rosto." },
+  { title: "Alongamento de cílios", description: "Técnicas fio a fio ou brasileira para mais definição e destaque no olhar." },
+  { title: "Selagem feminina", description: "Tratamento que ajuda a alinhar, reduzir o frizz e facilitar a rotina." },
+  { title: "Hidratação Wella ou L’Oréal + escova", description: "Reposição de hidratação e finalização com aspecto saudável." },
+  { title: "Corte feminino", description: "Corte pensado para valorizar o estilo e o movimento dos fios." },
+  { title: "Mega hair", description: "Mais comprimento e volume com resultado natural e personalizado." },
 ];
 
 const depilationOffers = [
-  { title: "Buço", price: "R$ 25,00" },
-  { title: "Axilas", price: "R$ 40,00" },
-  { title: "Meia perna", price: "R$ 40,00" },
-  { title: "Perna completa", price: "R$ 90,00" },
-  { title: "Costas na cera", prefix: "A partir de", price: "R$ 70,00" },
-  { title: "Barriga", prefix: "A partir de", price: "R$ 40,00" },
+  { title: "Buço" },
+  { title: "Axilas" },
+  { title: "Meia perna" },
+  { title: "Perna completa" },
+  { title: "Costas na cera" },
+  { title: "Barriga" },
 ];
 
 const gallery = [
-  { src: "/assets/real/img_3833.webp", alt: "Finalização de cabelo com escova no Silvia's Hair" },
   { src: "/assets/real/beleza-movimento-ondas.webp", alt: "Cabelo ondulado com mechas e acabamento no Silvia's Hair" },
   { src: "/assets/real/img_3805.webp", alt: "Manicure com francesinha delicada" },
-  { src: "/assets/real/img_3830.webp", alt: "Corte infantil realizado na barbearia Silvia's Hair" },
-  { src: "/assets/real/procedure-maquiagem-alt.webp", alt: "Maquiagem com acabamento sofisticado" },
-  { src: "/assets/real/img_3834.webp", alt: "Cuidado capilar com toalha personalizada do Silvia's Hair" },
-  { src: "/assets/real/procedure-penteado-alt.webp", alt: "Penteado com acabamento elaborado realizado no Silvia's Hair" },
-  { src: "/assets/real/procedure-limpeza-pele.webp", alt: "Procedimento de limpeza de pele realizado no Silvia's Hair" },
+  { src: "/assets/real/carousel-penteado-noiva-01.jpg", alt: "Penteado de noiva com coque e flores" },
+  { src: "/assets/real/carousel-penteado-noiva-02.jpg", alt: "Penteado de noiva com véu e tiara" },
+  { src: "/assets/real/carousel-unhas-01.png", alt: "Unhas decoradas em tons de vinho" },
+  { src: "/assets/real/carousel-unhas-02.png", alt: "Unhas decoradas em tons rosados" },
 ];
 
 const resultServices = [
-  { title: "Megahair", message: "de megahair", src: "/assets/real/mega-hair-novo.webp", alt: "Mega Hair longo e alinhado no Silvia's Hair" },
-  { title: "Penteado", message: "de penteado", src: "/assets/real/portfolio-penteado.webp", alt: "Penteado com acabamento elaborado realizado no Silvia's Hair" },
+  { title: "Megahair", message: "de megahair", src: "/assets/real/mega-hair-silvia-nova.png", alt: "Cabelo longo e ondulado em produção de Mega Hair" },
+  { title: "Penteado", message: "de penteado", src: "", alt: "" },
   { title: "Maquiagem", message: "de maquiagem", src: "/assets/real/img_3804.webp", alt: "Maquiagem com acabamento iluminado realizada no Silvia's Hair" },
   { title: "Noiva", message: "para noiva", src: "/assets/real/portfolio-noiva.webp", alt: "Produção de noiva realizada pelo Silvia's Hair" },
   { title: "Nail Design", message: "de nail design", src: "/assets/real/img_3831.webp", alt: "Unhas com nail art em tons nude e terrosos" },
@@ -94,8 +92,8 @@ const journalArticles = [
     title: "Silvia's Hair está entre as Marcas Inesquecíveis 2025",
     readTime: "3 min de leitura",
     excerpt: "O reconhecimento celebra uma trajetória construída com cuidado, confiança e presença na memória dos piauienses.",
-    image: "/assets/news/marcas-inesqueciveis-entrevista.webp",
-    alt: "Sílvia Meneses durante entrevista no evento Marcas Inesquecíveis 2025",
+    image: "/assets/news/marcas-inesqueciveis-capa-nova.png",
+    alt: "Sílvia Meneses ao lado de convidados no palco do Marcas Inesquecíveis 2025",
     ctaHref: whatsappUrl,
     ctaLabel: "Agendar um horário",
     source: "https://portalodia.com/marcas-inesqueciveis-2025/marcas-inesqueciveis-2025-veja-como-foi-o-evento-que-premiou-as-empresas-mais-lembradas-pelos-piauienses-455146.html",
@@ -129,23 +127,38 @@ const journalArticles = [
     ],
   },
   {
-    category: "Cabelos", title: "Tesouraterapia: cuidado sem perder o comprimento",
+    category: "Cabelos", title: "Corte terapêutico: cuidado sem perder o comprimento",
     readTime: "3 min de leitura",
-    excerpt: "Uma técnica minuciosa para remover pontas danificadas e preservar o formato dos fios.",
+    excerpt: "Um corte de tratamento que remove apenas as pontas danificadas, sem alterar o comprimento ou o formato dos fios.",
     image: "/assets/real/img_3803.webp", alt: "Sílvia Meneses realizando um corte no Silvia's Hair", message: "de tratamento capilar",
     body: [
-      "A tesouraterapia é uma alternativa para quem deseja cuidar das pontas quebradas sem alterar de forma significativa o comprimento ou o desenho do corte.",
-      "O procedimento é feito de maneira detalhada, fio a fio, e pode ajudar a devolver uma aparência mais alinhada e luminosa ao cabelo. A indicação ideal depende de uma avaliação profissional.",
+      "O corte terapêutico é um corte de tratamento que remove somente as pontas mortas, rachadas, duplas ou com o famoso pontinho branco. Ele não mexe no comprimento e não muda o formato do corte.",
+      "É indicado quando o cabelo está elástico por causa de descoloração, quebrando muito ou sofreu um corte químico. Nesses casos, a ponta danificada pode continuar subindo pelo fio, como uma meia rasgada, aumentando a quebra.",
+      "Ao retirar a parte comprometida, o corte terapêutico ajuda a interromper esse avanço e a estancar a quebra. A indicação ideal depende de uma avaliação profissional dos fios.",
     ],
   },
   {
-    category: "Mega Hair", title: "Como preservar um Mega Hair bonito e natural",
+    category: "Mega Hair", title: "Mega Hair: o cabelo longo e volumoso dos sonhos",
     readTime: "4 min de leitura",
-    excerpt: "Hábitos de manutenção que ajudam a proteger o alongamento e os fios naturais.",
-    image: "/assets/real/img_3833.webp", alt: "Cabelo longo com acabamento natural no Silvia's Hair", message: "de megahair",
+    excerpt: "Alongamento capilar para transformar o visual, respeitando o estilo e as necessidades de cada pessoa.",
+    image: "/assets/real/mega-hair-silvia-nova.png", alt: "Cabelo longo e ondulado em produção de Mega Hair", message: "de mega hair",
     body: [
-      "Um resultado natural depende tanto da aplicação quanto da rotina de cuidados. Escovação delicada, produtos adequados e atenção à região das emendas fazem parte da manutenção.",
-      "O intervalo de retorno varia conforme a técnica e o crescimento do cabelo. A equipe pode orientar a frequência ideal e os tratamentos mais indicados para cada caso.",
+      "O Mega Hair é uma opção para quem sonha com cabelos longos e quer mudar o visual para melhorar a autoestima.",
+      "O método consiste na aplicação de mechas de cabelo natural ou sintético ao cabelo existente. Existem extensões de diferentes texturas e tipos de fios, que podem ser adaptadas às necessidades e preferências de cada pessoa.",
+      "Entre as principais técnicas estão: Mega Hair de fita adesiva, de queratina, de microlink e de nó italiano.",
+      "A escolha da técnica ideal depende de uma avaliação profissional, considerando o tipo de cabelo, a rotina e o resultado desejado.",
+    ],
+  },
+  {
+    category: "Cabelos", title: "Nanoqueratinização: reconstrução profunda para fios danificados",
+    readTime: "4 min de leitura",
+    excerpt: "Tratamento de reconstrução que ajuda a devolver força, resistência, brilho e saúde aos fios fragilizados.",
+    image: "/assets/real/img_3834.webp", alt: "Tratamento capilar realizado no Silvia's Hair", message: "de nanoqueratinização",
+    body: [
+      "A nanoqueratinização utiliza queratina hidrolisada quebrada em partículas muito pequenas, na escala nano, para penetrar na fibra do cabelo em vez de agir apenas na superfície.",
+      "É indicada para cabelos quebradiços, sem elasticidade ou fragilizados por químicas e pelo calor. O processo começa com uma preparação especial, utilizando hidratação e máscara de tratamento antes da reposição de queratina e colágeno.",
+      "Essa combinação atua profundamente na fibra, ajudando a reconstruir a estrutura do fio, fechar as cutículas e devolver resistência.",
+      "O resultado é um cabelo mais forte, brilhante, alinhado e com aparência saudável, além de mais protegido contra as agressões do dia a dia.",
     ],
   },
   {
@@ -176,7 +189,7 @@ const getInitials = (name) => name
 
 const units = [
   {
-    name: "Teresina Shopping", image: "/assets/real/unidade-teresina-shopping.webp", imageAlt: "Fachada da unidade Silvia's Hair no Teresina Shopping",
+    name: "Teresina Shopping", image: "/assets/real/unidade-teresina-shopping-nova.jpg", imageAlt: "Nova fachada da unidade Silvia's Hair no Teresina Shopping",
     address: "Av. Raul Lopes, 1000 · Lojas 267/268/269 · Teresina — PI",
     hours: "Segunda a sábado, 10h às 22h · Domingos, 14h às 20h",
     maps: "https://www.google.com/maps/search/?api=1&query=Silvia%27s+Hair+Teresina+Shopping",
@@ -262,6 +275,22 @@ export function App() {
   }, [reviewsPaused]);
 
   useEffect(() => () => window.clearTimeout(galleryLoopTimer.current), []);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+    const elements = document.querySelectorAll(".about, .combo-card, .result-shot, .unit-card, .journal-card");
+    elements.forEach((element) => element.classList.add("reveal-on-scroll"));
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -36px" });
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, [isJournalPage]);
 
   useEffect(() => {
     if (!activeArticle) return undefined;
@@ -428,16 +457,16 @@ export function App() {
           <div className="page-width about__grid">
             <div className="about__copy">
               <p className="eyebrow">Sobre a Silvia</p>
-              <h2>Uma trajetória dedicada a transformar autoestima.</h2>
+              <h2>Silvia's Hair<br /><span>+30 anos de beleza</span></h2>
               <div className="gold-rule" />
-              <p>O Silvia's Hair nasceu da paixão de Sílvia Meneses pelo cuidado, pela beleza e pela transformação.</p>
-              <p>Sua carreira foi construída com constante aperfeiçoamento, formação profissional e dedicação a cada cliente.</p>
-              <p>Hoje, esse legado se traduz em um salão onde técnica, atendimento e atenção aos detalhes caminham juntos.</p>
+              <p>O Silvia's Hair é referência em beleza, saúde e bem-estar. O que começou em um pequeno salão de 3 × 3 m hoje são duas unidades com 360 m² de estrutura moderna em shopping centers, garantindo praticidade, conforto e segurança para homens, mulheres e crianças.</p>
+              <p>O grande diferencial da marca é unir atendimento humanizado a um padrão de qualidade reconhecido pelo mercado.</p>
+              <p>A missão do Silvia's Hair é oferecer excelência em ambientes acolhedores e dinâmicos. Com orgulho de ser referência regional, a empresária trabalha para expandir esse legado e tornar o Silvia's Hair uma referência nacional em beleza.</p>
               <a className="text-link" href="#servicos">Explore nossos serviços <ArrowRight size={18} /></a>
             </div>
             <figure className="about__media">
               <img src="/assets/real/silvia-profissional-secador.webp" alt="Sílvia Meneses trabalhando com secador e modelador no salão" />
-              <figcaption><span>25+</span> anos de experiência</figcaption>
+              <figcaption><span>30+</span> anos de experiência</figcaption>
             </figure>
           </div>
         </section>
@@ -474,7 +503,6 @@ export function App() {
                 <p>{featuredCombo.note}</p>
               </div>
               <div className="combos__featured-action">
-                <div className="combo-price combo-price--featured"><span>Valor especial</span><strong>{featuredCombo.price}</strong></div>
                 <AppButton href={whatsappForOffer(featuredCombo.title)} light>Quero este combo</AppButton>
               </div>
             </article>
@@ -486,12 +514,7 @@ export function App() {
                   <span className="combo-card__number">{String(index + 1).padStart(2, "0")}</span>
                   <h3>{offer.title}</h3>
                   {offer.detail && <p className="combo-card__detail">{offer.detail}</p>}
-                  <div className="combo-card__price">
-                    {offer.oldPrice && <del>de {offer.oldPrice}</del>}
-                    {offer.prefix && <small>{offer.prefix}</small>}
-                    <strong>{offer.price}</strong>
-                  </div>
-                  {offer.note && <p className="combo-card__note">{offer.note}</p>}
+                  <p className="combo-card__description">{offer.description}</p>
                   <a className="text-link" href={whatsappForOffer(offer.title)} target="_blank" rel="noreferrer" aria-label={`Agendar ${offer.title} pelo WhatsApp`}>
                     Agendar <WhatsappLogo size={18} weight="fill" aria-hidden="true" />
                   </a>
@@ -515,11 +538,11 @@ export function App() {
                 {depilationOffers.map((offer) => (
                   <div className="depilation-item" key={offer.title}>
                     <span>{offer.title}</span>
-                    <strong>{offer.prefix && <small>{offer.prefix}</small>}{offer.price}</strong>
+                    <strong aria-label="Consultar disponibilidade">Consultar <ArrowUpRight size={16} /></strong>
                   </div>
                 ))}
               </div>
-              <p className="combos__depilation-note">Valores de referência sujeitos à confirmação de vigência, método e avaliação profissional.</p>
+              <p className="combos__depilation-note">Áreas e valores variam conforme o método e a avaliação. Consulte a equipe para confirmar disponibilidade e agendar.</p>
             </aside>
           </div>
         </section>
@@ -535,8 +558,8 @@ export function App() {
             </div>
             <div className="results__mosaic">
               {resultServices.map((service) => (
-                <figure className="result-shot" key={service.title}>
-                  <img src={service.src} alt={service.alt} />
+                <figure className={`result-shot ${["Megahair", "Penteado"].includes(service.title) ? "result-shot--portrait" : ""}`} key={service.title}>
+                  {service.src ? <img src={service.src} alt={service.alt} /> : <div className="result-shot__placeholder" aria-label="Imagem a inserir posteriormente" />}
                   <figcaption>
                     <span className="result-shot__label">
                       <span>Procedimento</span>
