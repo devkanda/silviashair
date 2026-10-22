@@ -19,17 +19,20 @@ button { color: inherit; }
 .section--ivory { background: var(--ivory); }
 .section--black { background: var(--black); color: var(--ivory); }
 
-.brand-intro { position: fixed; z-index: 100; inset: 0; display: grid; place-content: center; place-items: center; gap: 28px; background: #0d0d0c; color: var(--ivory); will-change: opacity, transform; animation: brandIntroCurtain 2.45s cubic-bezier(.65,0,.2,1) both; }
+.brand-intro { position: fixed; z-index: 100; inset: 0; display: grid; place-content: center; place-items: center; gap: 28px; background: #0d0d0c; color: var(--ivory); will-change: opacity, transform; animation: brandIntroCurtain 10s cubic-bezier(.65,0,.2,1) both; }
+.brand-intro__video { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.78); opacity: .62; }
+.brand-intro::before { position: absolute; z-index: 1; inset: 0; content: ""; background: rgba(13,13,12,.42); }
+.brand-intro__lockup, .brand-intro__rule { position: relative; z-index: 2; }
 .brand-intro__lockup { display: flex; align-items: center; gap: 25px; transform-origin: center; will-change: transform, opacity; animation: brandIntroLockup 1.55s cubic-bezier(.22,.8,.25,1) both; }
 .brand-intro__mark { width: 67px; height: 92px; flex: 0 0 auto; background: var(--gold-light); -webkit-mask: url("/assets/silvias-mark.png") center / contain no-repeat; mask: url("/assets/silvias-mark.png") center / contain no-repeat; animation: brandIntroMark 1.24s cubic-bezier(.22,.8,.25,1) both; }
 .brand-intro__copy { display: flex; flex-direction: column; align-items: flex-start; opacity: 0; animation: brandIntroCopySync .01s .22s forwards; }
 .brand-intro__copy strong { font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(52px, 5.2vw, 76px); font-weight: 400; line-height: .82; letter-spacing: -.04em; white-space: nowrap; animation: brandIntroWordmark 1.34s cubic-bezier(.22,.8,.25,1) both; }
 .brand-intro__copy small { margin-top: 17px; color: var(--gold-light); font-size: 9px; font-weight: 600; line-height: 1; letter-spacing: .3em; text-transform: uppercase; animation: brandIntroSignature 1.48s cubic-bezier(.22,.8,.25,1) both; }
 .brand-intro__rule { width: min(420px, 62vw); height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform-origin: center; animation: brandIntroRule 1.58s cubic-bezier(.22,.8,.25,1) both; }
-.site-shell--intro > main { will-change: opacity; animation: brandSiteReveal 2.45s cubic-bezier(.45,0,.2,1) both; }
-.site-shell--intro .site-header { animation: brandHeaderReveal 2.45s cubic-bezier(.22,.8,.25,1) both; }
-.site-shell--intro .hero__image { will-change: transform; animation: brandHeroReveal 2.45s cubic-bezier(.22,.8,.25,1) both; }
-.site-shell--intro .hero__content { animation: brandHeroCopyReveal 2.45s cubic-bezier(.22,.8,.25,1) both; }
+.site-shell--intro > main { will-change: opacity; animation: brandSiteReveal 10s cubic-bezier(.45,0,.2,1) both; }
+.site-shell--intro .site-header { animation: brandHeaderReveal 10s cubic-bezier(.22,.8,.25,1) both; }
+.site-shell--intro .hero__image { will-change: transform; animation: brandHeroReveal 10s cubic-bezier(.22,.8,.25,1) both; }
+.site-shell--intro .hero__content { animation: brandHeroCopyReveal 10s cubic-bezier(.22,.8,.25,1) both; }
 @keyframes brandIntroCurtain { 0%, 62% { opacity: 1; transform: scale(1); } 100% { opacity: 0; visibility: hidden; transform: scale(1.012); } }
 @keyframes brandIntroLockup { 0% { opacity: 0; transform: translate3d(0, 18px, 0); } 100% { opacity: 1; transform: translate3d(0, 0, 0); } }
 @keyframes brandIntroCopySync { to { opacity: 1; } }

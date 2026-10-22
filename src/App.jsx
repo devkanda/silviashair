@@ -250,7 +250,7 @@ export function App() {
     const isPreview = new URLSearchParams(window.location.search).get("intro") === "1";
     if (!isPreview) window.sessionStorage.setItem("silvias-brand-intro-seen", "1");
 
-    const timer = window.setTimeout(() => setIntroVisible(false), 2450);
+    const timer = window.setTimeout(() => setIntroVisible(false), 10000);
     return () => {
       window.clearTimeout(timer);
     };
@@ -329,6 +329,9 @@ export function App() {
     <div className={`site-shell ${introVisible ? "site-shell--intro" : ""}`}>
       {introVisible && (
         <div className="brand-intro" aria-hidden="true">
+          <video className="brand-intro__video" autoPlay muted playsInline preload="auto">
+            <source src="/assets/real/marcas-inesqueciveis-abertura.mp4" type="video/mp4" />
+          </video>
           <div className="brand-intro__lockup">
             <span className="brand-intro__mark" />
             <span className="brand-intro__copy">
